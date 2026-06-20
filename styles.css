@@ -1,0 +1,172 @@
+/* ============================================================
+   Mi Tribu · Sistema de Diseño Base
+   ============================================================ */
+
+/* --- Variables ------------------------------------------------ */
+:root {
+  --paper:       #F5F2EC;
+  --ink:         #1A1C19;
+  --gold-dim:    #C9A84C;
+  --stone-light: #EFEDE8;
+  --charcoal:    #2E3027;
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  8rem;
+}
+
+/* --- Reset mínimo -------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Tipografía fluida --------------------------------------- */
+.f-hero {
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+.f-section {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+.f-sub {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.f-stat {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+}
+
+/* --- Clases utilitarias -------------------------------------- */
+
+/* Gradiente dorado */
+.gold-text {
+  background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card con hover */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(26, 28, 25, 0.12);
+}
+
+/* Punto pulsante con anillo animado */
+.pulse-dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: var(--gold-dim);
+}
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--gold-dim);
+  animation: pulseRing 1.8s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* --- Scroll reveal ------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+.reveal-delay-4 { transition-delay: 0.5s; }
+
+/* --- Hero entrance animations -------------------------------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.a1 { animation: fadeUp 0.7s ease forwards; animation-delay: 0.1s; opacity: 0; }
+.a2 { animation: fadeUp 0.7s ease forwards; animation-delay: 0.3s; opacity: 0; }
+.a3 { animation: fadeUp 0.7s ease forwards; animation-delay: 0.5s; opacity: 0; }
+.a4 { animation: fadeUp 0.7s ease forwards; animation-delay: 0.7s; opacity: 0; }
+
+/* --- FAQ Accordion ------------------------------------------- */
+details {
+  border-bottom: 1px solid rgba(26, 28, 25, 0.1);
+}
+details summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.25rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+
+details > p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  padding-bottom: 0;
+}
+details[open] > p {
+  max-height: 300px;
+  padding-bottom: 1.25rem;
+}
+
+/* --- Scrollbar sutil ----------------------------------------- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--charcoal); border-radius: 10px; }

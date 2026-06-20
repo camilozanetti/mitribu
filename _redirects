@@ -1,0 +1,8 @@
+# Netlify _redirects
+#
+# Esta regla es un REWRITE (código 200), NO un redirect HTTP.
+# Netlify sirve /index.html para cualquier ruta desconocida,
+# permitiendo que el JS del cliente maneje la navegación SPA
+# sin que Netlify devuelva un 404 en rutas directas.
+
+/*    /index.html    200
