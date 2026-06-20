@@ -144,14 +144,16 @@
     <div class="absolute inset-0 z-0 overflow-hidden">
       <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c6850a683b64fe2e7370.jpg"
            alt="Comunidad Mi Tribu" fetchpriority="high"
-           class="w-full h-full object-cover object-center">
+           class="w-full h-full object-cover object-bottom">
       <div class="hero-ov absolute inset-0"></div>
     </div>
 
     <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-20 pb-6">
-      <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c66f0a683b64fe2e712a.png"
-           alt="Mi Tribu" class="h-12 md:h-14 w-auto mx-auto mb-8 a1"
-           style="filter:brightness(0) invert(1)">
+      <div class="flex flex-col items-center gap-2 mb-8 a1">
+        <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67b1c5d711b35b04223.png"
+             alt="Mi Tribu" class="h-14 w-auto" style="filter:brightness(0) invert(1)">
+        <p class="font-serif font-light text-crema/75 uppercase tracking-[.35em]" style="font-size:.95rem">Mi Tribu</p>
+      </div>
 
       <div class="flex items-center gap-3 mb-6 a2">
         <span class="w-7 h-px bg-terracota/55"></span>
@@ -191,15 +193,15 @@
     </div>
   </section>
 
-  <!-- ══════ MARQUEE ══════ -->
-  <div class="bg-verdeBosque py-3 overflow-hidden">
+  <!-- ══════ DATOS CLAVE ══════ -->
+  <div class="border-y border-verdeBosque/10 py-3 overflow-hidden" style="background:rgba(26,61,43,.04)">
     <div class="mq whitespace-nowrap">
-      <span class="text-[11px] font-mono tracking-[.2em] text-crema/28 uppercase">
+      <span class="text-[11px] font-mono tracking-[.18em] text-verdeBosque/45 uppercase">
         36 Familias &nbsp;·&nbsp; 70 Personas &nbsp;·&nbsp; 53 Ha Bosque Andino &nbsp;·&nbsp;
         205 Especies &nbsp;·&nbsp; 25 Profesiones &nbsp;·&nbsp; Agroecología · Bioconstrucción &nbsp;·&nbsp;
         Sociocracia · Permacultura &nbsp;·&nbsp; La Vega – Cundinamarca &nbsp;·&nbsp;&nbsp;
       </span>
-      <span class="text-[11px] font-mono tracking-[.2em] text-crema/28 uppercase">
+      <span class="text-[11px] font-mono tracking-[.18em] text-verdeBosque/45 uppercase">
         36 Familias &nbsp;·&nbsp; 70 Personas &nbsp;·&nbsp; 53 Ha Bosque Andino &nbsp;·&nbsp;
         205 Especies &nbsp;·&nbsp; 25 Profesiones &nbsp;·&nbsp; Agroecología · Bioconstrucción &nbsp;·&nbsp;
         Sociocracia · Permacultura &nbsp;·&nbsp; La Vega – Cundinamarca &nbsp;·&nbsp;&nbsp;
@@ -327,26 +329,6 @@
         </div>
       </div>
 
-      <!-- Foto comunidad -->
-      <div class="reveal mt-4">
-        <div class="relative h-72 lg:h-80 rounded-3xl overflow-hidden">
-          <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67e1c5d711b35b04257.png"
-               alt="Comunidad Mi Tribu" loading="lazy"
-               class="w-full h-full object-cover object-center">
-          <div class="absolute inset-0"
-               style="background:linear-gradient(100deg,rgba(26,61,43,.72) 0%,rgba(26,61,43,.18) 55%,transparent 100%)">
-          </div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="px-10 lg:px-14 max-w-lg">
-              <p class="font-serif italic font-light text-crema leading-snug"
-                 style="font-size:clamp(1.4rem,2.5vw,2rem)">
-                "25 profesiones distintas,<br>un mismo territorio, una sola tribu."
-              </p>
-              <p class="text-[11px] uppercase tracking-[.2em] text-crema/40 font-mono mt-4">36 familias · 70 personas · La Vega</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -488,74 +470,20 @@
         </h2>
       </div>
 
-      <!-- Desktop: círculo central + textos en esquinas -->
-      <div class="hidden lg:flex items-center justify-center gap-10 reveal">
+      <!-- Desktop: brújula izquierda + panel de contenido derecha -->
+      <div class="hidden lg:grid items-center gap-16 reveal" style="grid-template-columns:400px 1fr">
 
-        <!-- Columna izquierda -->
-        <div class="flex flex-col justify-between w-52" style="height:440px">
-
-          <!-- Territorio (top-left) -->
-          <div class="cursor-pointer group" @click="dim=dim===1?0:1">
-            <div class="flex items-center gap-2 justify-end mb-1.5">
-              <span class="text-[9px] uppercase tracking-widest font-medium transition-colors"
-                    :class="dim===1?'text-verdeHoja':'text-verdeHoja/50'">Territorio</span>
-              <i class="ph ph-leaf transition-colors" style="font-size:13px"
-                 :class="dim===1?'text-verdeHoja':'text-verdeHoja/40'"></i>
-            </div>
-            <h4 class="font-serif text-right leading-tight transition-colors"
-                :class="dim===1?'text-verdeBosque':'text-verdeBosque/40'"
-                style="font-size:1.15rem;font-weight:300">Cuidado<br>de la vida</h4>
-            <div x-show="dim===1" x-transition:enter="transition duration-300" x-transition:enter-start="opacity-0"
-                 class="mt-2 text-right">
-              <p class="text-xs text-verdeBosque/55 font-light leading-relaxed">
-                53 Ha de Bosque Subandino. Protección del agua, conservación y restauración del ecosistema.
-              </p>
-              <div class="flex flex-wrap gap-1.5 justify-end mt-3">
-                <span class="text-[9px] bg-verdeHoja/8 text-verdeHoja px-2.5 py-1 rounded-full">41 Ha conservación</span>
-                <span class="text-[9px] bg-verdeHoja/8 text-verdeHoja px-2.5 py-1 rounded-full">17 Ha hídrica</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Gobernanza (bottom-left) -->
-          <div class="cursor-pointer group" @click="dim=dim===4?0:4">
-            <div class="flex items-center gap-2 justify-end mb-1.5">
-              <span class="text-[9px] uppercase tracking-widest font-medium transition-colors"
-                    :class="dim===4?'text-verdeBosque/70':'text-verdeBosque/35'">Gobernanza</span>
-              <i class="ph ph-scales transition-colors" style="font-size:13px"
-                 :class="dim===4?'text-verdeBosque/60':'text-verdeBosque/25'"></i>
-            </div>
-            <h4 class="font-serif text-right leading-tight transition-colors"
-                :class="dim===4?'text-verdeBosque':'text-verdeBosque/40'"
-                style="font-size:1.15rem;font-weight:300">Cuidado<br>de la estructura</h4>
-            <div x-show="dim===4" x-transition:enter="transition duration-300" x-transition:enter-start="opacity-0"
-                 class="mt-2 text-right">
-              <p class="text-xs text-verdeBosque/55 font-light leading-relaxed">
-                Gobernanza dinámica y participativa. Sociocracia para decisiones colectivas equitativas.
-              </p>
-              <div class="flex flex-wrap gap-1.5 justify-end mt-3">
-                <span class="text-[9px] bg-verdeBosque/8 text-verdeBosque/60 px-2.5 py-1 rounded-full">Sociocracia</span>
-                <span class="text-[9px] bg-verdeBosque/8 text-verdeBosque/60 px-2.5 py-1 rounded-full">Horizontalidad</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Círculo central SVG -->
-        <div class="relative flex-shrink-0" style="width:440px;height:440px">
+        <!-- LEFT: Brújula / círculo de cuadrantes -->
+        <div class="relative flex-shrink-0" style="width:400px;height:400px">
           <svg viewBox="0 0 440 440" class="w-full h-full">
             <defs>
-              <!-- Clips para cada cuadrante -->
               <clipPath id="cq1"><path d="M220,220 L220,0 A220,220 0 0,0 0,220 Z"/></clipPath>
               <clipPath id="cq2"><path d="M220,220 L440,220 A220,220 0 0,0 220,0 Z"/></clipPath>
               <clipPath id="cq3"><path d="M220,220 L220,440 A220,220 0 0,0 440,220 Z"/></clipPath>
               <clipPath id="cq4"><path d="M220,220 L0,220 A220,220 0 0,0 220,440 Z"/></clipPath>
-              <!-- Clip para círculo completo -->
-              <clipPath id="ccirc"><circle cx="220" cy="220" r="219"/></clipPath>
             </defs>
 
-            <!-- Fotos en cada cuadrante (clip-path) -->
+            <!-- Fotos en cada cuadrante -->
             <image href="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961ba.jpeg"
                    x="0" y="0" width="440" height="440" preserveAspectRatio="xMidYMid slice"
                    clip-path="url(#cq1)" class="cursor-pointer" @click="dim=dim===1?0:1"/>
@@ -569,102 +497,144 @@
                    x="0" y="0" width="440" height="440" preserveAspectRatio="xMidYMid slice"
                    clip-path="url(#cq4)" class="cursor-pointer" @click="dim=dim===4?0:4"/>
 
-            <!-- Overlays de color: activo = sutil, inactivo = más oscuro -->
+            <!-- Overlays -->
             <path d="M220,220 L220,0 A220,220 0 0,0 0,220 Z" class="cursor-pointer"
-                  :fill="dim===0?'rgba(61,122,79,.28)':dim===1?'rgba(61,122,79,.1)':'rgba(5,15,8,.55)'"
+                  :fill="dim===0?'rgba(61,122,79,.28)':dim===1?'rgba(61,122,79,.1)':'rgba(5,15,8,.60)'"
                   style="transition:fill .4s" @click="dim=dim===1?0:1"/>
             <path d="M220,220 L440,220 A220,220 0 0,0 220,0 Z" class="cursor-pointer"
-                  :fill="dim===0?'rgba(196,113,74,.28)':dim===2?'rgba(196,113,74,.1)':'rgba(15,5,0,.55)'"
+                  :fill="dim===0?'rgba(196,113,74,.28)':dim===2?'rgba(196,113,74,.1)':'rgba(15,5,0,.60)'"
                   style="transition:fill .4s" @click="dim=dim===2?0:2"/>
             <path d="M220,220 L220,440 A220,220 0 0,0 440,220 Z" class="cursor-pointer"
-                  :fill="dim===0?'rgba(123,166,181,.28)':dim===3?'rgba(123,166,181,.1)':'rgba(5,12,18,.55)'"
+                  :fill="dim===0?'rgba(123,166,181,.28)':dim===3?'rgba(123,166,181,.1)':'rgba(5,12,18,.60)'"
                   style="transition:fill .4s" @click="dim=dim===3?0:3"/>
             <path d="M220,220 L0,220 A220,220 0 0,0 220,440 Z" class="cursor-pointer"
-                  :fill="dim===0?'rgba(26,61,43,.28)':dim===4?'rgba(26,61,43,.1)':'rgba(5,15,8,.55)'"
+                  :fill="dim===0?'rgba(26,61,43,.28)':dim===4?'rgba(26,61,43,.1)':'rgba(5,15,8,.60)'"
                   style="transition:fill .4s" @click="dim=dim===4?0:4"/>
 
-            <!-- Ejes divisores blancos -->
-            <line x1="220" y1="0" x2="220" y2="440" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/>
-            <line x1="0" y1="220" x2="440" y2="220" stroke="rgba(255,255,255,.55)" stroke-width="1.5"/>
+            <!-- Divisores blancos -->
+            <line x1="220" y1="0" x2="220" y2="440" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+            <line x1="0" y1="220" x2="440" y2="220" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
 
-            <!-- Borde exterior del círculo -->
-            <circle cx="220" cy="220" r="219" fill="none" stroke="rgba(26,61,43,.12)" stroke-width="1"/>
             <!-- Anillo punteado exterior -->
-            <circle cx="220" cy="220" r="219" fill="none" stroke="rgba(26,61,43,.2)" stroke-width="2"
-                    stroke-dasharray="5 5"/>
+            <circle cx="220" cy="220" r="219" fill="none" stroke="rgba(26,61,43,.2)" stroke-width="2" stroke-dasharray="5 5"/>
 
-            <!-- Labels dentro de cada cuadrante -->
-            <text x="110" y="150" text-anchor="middle" fill="rgba(255,255,255,.82)"
+            <!-- Labels en cuadrantes -->
+            <text x="110" y="150" text-anchor="middle" fill="rgba(255,255,255,.85)"
                   style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">TERRITORIO</text>
-            <text x="330" y="150" text-anchor="middle" fill="rgba(255,255,255,.82)"
+            <text x="330" y="150" text-anchor="middle" fill="rgba(255,255,255,.85)"
                   style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">ECONOMÍA</text>
-            <text x="330" y="300" text-anchor="middle" fill="rgba(255,255,255,.82)"
+            <text x="330" y="305" text-anchor="middle" fill="rgba(255,255,255,.85)"
                   style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">COMUNIDAD</text>
-            <text x="110" y="300" text-anchor="middle" fill="rgba(255,255,255,.82)"
+            <text x="110" y="305" text-anchor="middle" fill="rgba(255,255,255,.85)"
                   style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase">GOBERNANZA</text>
 
-            <!-- Círculo central blanco -->
+            <!-- Círculo central -->
             <circle cx="220" cy="220" r="46" fill="rgba(250,248,244,.96)" stroke="rgba(26,61,43,.07)" stroke-width="1"/>
           </svg>
 
-          <!-- Isotipo sobre el SVG -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center" style="width:92px;height:92px">
+          <!-- Isotipo sobre el círculo -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="width:92px;height:92px;display:flex;align-items:center;justify-content:center">
             <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67b1c5d711b35b04223.png"
                  alt="Mi Tribu" class="w-10">
           </div>
 
-          <!-- Hint -->
           <p class="absolute -bottom-7 left-0 right-0 text-center text-[10px] text-verdeBosque/28 font-mono uppercase tracking-widest">
-            Toca cada cuadrante
+            Selecciona una dimensión
           </p>
         </div>
 
-        <!-- Columna derecha -->
-        <div class="flex flex-col justify-between w-52" style="height:440px">
+        <!-- RIGHT: Panel de contenido -->
+        <div class="relative" style="min-height:400px">
 
-          <!-- Economía (top-right) -->
-          <div class="cursor-pointer group" @click="dim=dim===2?0:2">
-            <div class="flex items-center gap-2 mb-1.5">
-              <i class="ph ph-coins transition-colors" style="font-size:13px"
-                 :class="dim===2?'text-terracota':'text-terracota/40'"></i>
-              <span class="text-[9px] uppercase tracking-widest font-medium transition-colors"
-                    :class="dim===2?'text-terracota':'text-terracota/50'">Economía</span>
+          <!-- Placeholder cuando ninguna dimensión está activa -->
+          <div x-show="dim===0"
+               x-transition:enter="transition duration-300" x-transition:enter-start="opacity-0"
+               class="absolute inset-0 flex flex-col items-center justify-center">
+            <div class="w-12 h-12 rounded-full border border-verdeBosque/12 flex items-center justify-center mb-5">
+              <i class="ph ph-compass text-verdeBosque/25" style="font-size:22px"></i>
             </div>
-            <h4 class="font-serif leading-tight transition-colors"
-                :class="dim===2?'text-verdeBosque':'text-verdeBosque/40'"
-                style="font-size:1.15rem;font-weight:300">Cuidado<br>del sustento</h4>
-            <div x-show="dim===2" x-transition:enter="transition duration-300" x-transition:enter-start="opacity-0"
-                 class="mt-2">
-              <p class="text-xs text-verdeBosque/55 font-light leading-relaxed">
-                Economía circular, emprendimientos responsables y gestión colaborativa de recursos.
-              </p>
-              <div class="flex flex-wrap gap-1.5 mt-3">
-                <span class="text-[9px] bg-terracota/8 text-terracota px-2.5 py-1 rounded-full">Economía circular</span>
-                <span class="text-[9px] bg-terracota/8 text-terracota px-2.5 py-1 rounded-full">Alianzas</span>
-              </div>
+            <p class="font-serif italic font-light text-verdeBosque/25 text-xl leading-relaxed text-center">
+              Toca un cuadrante<br>para explorar la dimensión
+            </p>
+          </div>
+
+          <!-- Territorio -->
+          <div x-show="dim===1" style="display:none"
+               x-transition:enter="transition duration-400" x-transition:enter-start="opacity-0 translate-x-3"
+               class="absolute inset-0">
+            <div class="rounded-2xl overflow-hidden mb-6" style="height:220px">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961ba.jpeg"
+                   alt="Territorio" class="w-full h-full object-cover">
+            </div>
+            <span class="text-[9px] uppercase tracking-widest text-verdeHoja font-medium">Territorio</span>
+            <h3 class="font-serif text-3xl font-light text-verdeBosque mt-1 mb-3">Cuidado de la vida</h3>
+            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed mb-5">
+              53 Ha de Bosque Subandino en La Vega, Cundinamarca. Protección de fuentes hídricas, conservación activa y restauración del ecosistema como base de toda vida comunitaria.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[9px] bg-verdeHoja/8 text-verdeHoja px-2.5 py-1 rounded-full">41 Ha conservación</span>
+              <span class="text-[9px] bg-verdeHoja/8 text-verdeHoja px-2.5 py-1 rounded-full">17 Ha zona hídrica</span>
+              <span class="text-[9px] bg-verdeHoja/8 text-verdeHoja px-2.5 py-1 rounded-full">205 Spp. registradas</span>
             </div>
           </div>
 
-          <!-- Comunidad (bottom-right) -->
-          <div class="cursor-pointer group" @click="dim=dim===3?0:3">
-            <div class="flex items-center gap-2 mb-1.5">
-              <i class="ph ph-users transition-colors" style="font-size:13px"
-                 :class="dim===3?'text-azulCielo':'text-azulCielo/40'"></i>
-              <span class="text-[9px] uppercase tracking-widest font-medium transition-colors"
-                    :class="dim===3?'text-azulCielo':'text-azulCielo/50'">Comunidad</span>
+          <!-- Economía -->
+          <div x-show="dim===2" style="display:none"
+               x-transition:enter="transition duration-400" x-transition:enter-start="opacity-0 translate-x-3"
+               class="absolute inset-0">
+            <div class="rounded-2xl overflow-hidden mb-6" style="height:220px">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a6a6dd1b69a58ce41.jpeg"
+                   alt="Economía" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-serif leading-tight transition-colors"
-                :class="dim===3?'text-verdeBosque':'text-verdeBosque/40'"
-                style="font-size:1.15rem;font-weight:300">Cuidado<br>de los vínculos</h4>
-            <div x-show="dim===3" x-transition:enter="transition duration-300" x-transition:enter-start="opacity-0"
-                 class="mt-2">
-              <p class="text-xs text-verdeBosque/55 font-light leading-relaxed">
-                Convivencia armoniosa, comunicación empática y desarrollo del Ser en comunidad.
-              </p>
-              <div class="flex flex-wrap gap-1.5 mt-3">
-                <span class="text-[9px] bg-azulCielo/10 text-azulCielo px-2.5 py-1 rounded-full">CNV</span>
-                <span class="text-[9px] bg-azulCielo/10 text-azulCielo px-2.5 py-1 rounded-full">Tejido social</span>
-              </div>
+            <span class="text-[9px] uppercase tracking-widest text-terracota font-medium">Economía</span>
+            <h3 class="font-serif text-3xl font-light text-verdeBosque mt-1 mb-3">Cuidado del sustento</h3>
+            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed mb-5">
+              Economía circular, emprendimientos colaborativos y gestión responsable de recursos. 25 profesiones distintas generan un ecosistema productivo diverso y resiliente.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[9px] bg-terracota/8 text-terracota px-2.5 py-1 rounded-full">Economía circular</span>
+              <span class="text-[9px] bg-terracota/8 text-terracota px-2.5 py-1 rounded-full">25 profesiones</span>
+              <span class="text-[9px] bg-terracota/8 text-terracota px-2.5 py-1 rounded-full">Alianzas estratégicas</span>
+            </div>
+          </div>
+
+          <!-- Comunidad -->
+          <div x-show="dim===3" style="display:none"
+               x-transition:enter="transition duration-400" x-transition:enter-start="opacity-0 translate-x-3"
+               class="absolute inset-0">
+            <div class="rounded-2xl overflow-hidden mb-6" style="height:220px">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961c1.jpg"
+                   alt="Comunidad" class="w-full h-full object-cover">
+            </div>
+            <span class="text-[9px] uppercase tracking-widest text-azulCielo font-medium">Comunidad</span>
+            <h3 class="font-serif text-3xl font-light text-verdeBosque mt-1 mb-3">Cuidado de los vínculos</h3>
+            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed mb-5">
+              36 familias, 70 personas conviviendo con propósito. Comunicación No Violenta, desarrollo del Ser y tejido de relaciones profundas entre generaciones y mundos.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[9px] bg-azulCielo/10 text-azulCielo px-2.5 py-1 rounded-full">CNV</span>
+              <span class="text-[9px] bg-azulCielo/10 text-azulCielo px-2.5 py-1 rounded-full">36 familias</span>
+              <span class="text-[9px] bg-azulCielo/10 text-azulCielo px-2.5 py-1 rounded-full">Tejido intergeneracional</span>
+            </div>
+          </div>
+
+          <!-- Gobernanza -->
+          <div x-show="dim===4" style="display:none"
+               x-transition:enter="transition duration-400" x-transition:enter-start="opacity-0 translate-x-3"
+               class="absolute inset-0">
+            <div class="rounded-2xl overflow-hidden mb-6" style="height:220px">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a1c5d711b35b631c3.jpeg"
+                   alt="Gobernanza" class="w-full h-full object-cover">
+            </div>
+            <span class="text-[9px] uppercase tracking-widest text-verdeBosque/60 font-medium">Gobernanza</span>
+            <h3 class="font-serif text-3xl font-light text-verdeBosque mt-1 mb-3">Cuidado de la estructura</h3>
+            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed mb-5">
+              Gobernanza dinámica y participativa mediante Sociocracia. Decisiones colectivas equitativas, horizontalidad y co-responsabilidad como pilares del tejido institucional.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-[9px] bg-verdeBosque/8 text-verdeBosque/60 px-2.5 py-1 rounded-full">Sociocracia</span>
+              <span class="text-[9px] bg-verdeBosque/8 text-verdeBosque/60 px-2.5 py-1 rounded-full">Horizontalidad</span>
+              <span class="text-[9px] bg-verdeBosque/8 text-verdeBosque/60 px-2.5 py-1 rounded-full">Co-responsabilidad</span>
             </div>
           </div>
 
