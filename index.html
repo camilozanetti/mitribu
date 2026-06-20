@@ -28,26 +28,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Google Fonts: DM Sans + Cormorant Garamond + JetBrains Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind config con paleta Mi Tribu -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            paper:        '#F5F2EC',
-            ink:          '#1A1C19',
-            'gold-dim':   '#C9A84C',
-            'stone-light':'#EFEDE8',
-            charcoal:     '#2E3027',
+            crema:       '#FAF8F4',
+            verdeBosque: '#1A3D2B',
+            verdeHoja:   '#3D7A4F',
+            terracota:   '#C4714A',
+            azulCielo:   '#7BA6B5',
           },
           fontFamily: {
-            sans:  ['DM Sans', 'sans-serif'],
             serif: ['Cormorant Garamond', 'serif'],
-            mono:  ['JetBrains Mono', 'monospace'],
+            sans:  ['DM Sans', 'sans-serif'],
           },
           borderRadius: {
             saas: '1.5rem',
@@ -58,26 +65,473 @@
     }
   </script>
 
-  <!-- Phosphor Icons -->
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
   <!-- Estilos del sistema de diseño -->
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .display-large {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #FAF8F4; }
+    ::-webkit-scrollbar-thumb { background: #1A3D2B; border-radius: 10px; }
+  </style>
 </head>
-<body class="bg-paper text-ink font-sans antialiased selection:bg-gold-dim/30">
+<body class="bg-crema text-verdeBosque font-sans antialiased selection:bg-verdeHoja selection:text-crema"
+      x-data="{ toastMessage: '', showToast: false }">
 
-  <main>
-    <div class="max-w-[1060px] mx-auto px-4 sm:px-5">
-      <!-- Contenido del sitio aquí -->
+  <!-- Notificación Minimalista -->
+  <div x-show="showToast"
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 translate-y-4"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 translate-y-4"
+       class="fixed bottom-8 right-8 z-50 bg-verdeBosque text-crema px-6 py-4 rounded-xl shadow-lg border border-verdeHoja/10 text-xs tracking-wider flex items-center gap-3"
+       style="display: none;">
+    <span class="w-2 h-2 bg-azulCielo rounded-full animate-pulse"></span>
+    <span x-text="toastMessage"></span>
+  </div>
+
+  <!-- Navegación -->
+  <header class="w-full bg-crema/80 backdrop-blur-md sticky top-0 z-40 border-b border-verdeBosque/5">
+    <div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+      <a href="#" class="font-serif text-2xl tracking-wide font-light">
+        mi tribu <span class="text-terracota font-sans text-xs">· ecoaldea</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase font-medium text-verdeBosque/70">
+        <a href="#diagnostico" class="hover:text-verdeHoja transition-colors duration-300">Origen</a>
+        <a href="#territorio"  class="hover:text-verdeHoja transition-colors duration-300">Territorio</a>
+        <a href="#concepto"    class="hover:text-verdeHoja transition-colors duration-300">Concepto</a>
+        <a href="#identidad"   class="hover:text-verdeHoja transition-colors duration-300">Paleta</a>
+        <a href="#registro"    class="text-terracota hover:text-verdeBosque transition-colors duration-300">Co-Creación</a>
+      </div>
+
+      <div class="text-[10px] font-mono tracking-widest text-verdeBosque/40 uppercase hidden lg:block">
+        La Vega, Cundinamarca · 4.999° N, 74.341° W
+      </div>
     </div>
-  </main>
+  </header>
 
-  <!-- Analytics (cargar GA definiendo window.GA_ID antes de este script) -->
+  <!-- Hero -->
+  <section class="relative min-h-[90vh] flex items-center px-8 py-16 overflow-hidden">
+    <div class="absolute right-0 top-1/4 w-[40vw] h-[40vw] bg-azulCielo/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute left-10 bottom-10 w-[30vw] h-[30vw] bg-verdeHoja/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+      <div class="lg:col-span-8 flex flex-col justify-center items-start gap-8">
+        <div class="flex items-center gap-3 a1">
+          <span class="w-8 h-[1px] bg-terracota"></span>
+          <span class="text-xs uppercase tracking-[0.25em] text-terracota font-medium">Un hábitat de raíz viva</span>
+        </div>
+
+        <h1 class="display-large font-serif font-light text-verdeBosque leading-none a2">
+          Habitar la tierra<br>
+          desde el silencio<br>
+          <span class="font-serif italic font-light text-verdeHoja">de la comunidad.</span>
+        </h1>
+
+        <p class="font-serif text-xl md:text-2xl text-verdeBosque/70 font-light max-w-xl leading-relaxed italic border-l border-verdeHoja/20 pl-6 a3">
+          "En la raíz de la tierra y el corazón de la comunidad, florece un nuevo modo de habitar el mundo."
+        </p>
+
+        <div class="flex gap-6 mt-4 a4">
+          <a href="#diagnostico" class="bg-verdeBosque hover:bg-verdeHoja text-crema text-xs uppercase tracking-widest px-8 py-4 rounded-md transition-all duration-300 shadow-sm">
+            Conocer origen
+          </a>
+          <a href="#registro" class="border border-verdeBosque/20 hover:border-verdeBosque text-verdeBosque text-xs uppercase tracking-widest px-8 py-4 rounded-md transition-all duration-300">
+            Unirse a la Tribu
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 flex flex-col justify-center lg:items-end a4">
+        <div class="border-t border-r border-verdeBosque/10 p-8 max-w-sm flex flex-col gap-6 bg-crema/40 backdrop-blur-sm rounded-tr-3xl">
+          <span class="text-[10px] uppercase tracking-[0.15em] text-verdeHoja font-medium font-mono">Presentación de Identidad</span>
+          <p class="text-sm text-verdeBosque/70 leading-relaxed font-light">
+            Diseño concebido para tejer la herencia viva de los pueblos originarios de La Vega con la riqueza de un bosque andino en activa regeneración.
+          </p>
+          <div class="flex gap-4 items-center">
+            <span class="pulse-dot"></span>
+            <span class="text-xs text-verdeBosque font-medium font-mono">Resumen Ejecutivo 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 · Diagnóstico -->
+  <section id="diagnostico" class="py-24 px-8 max-w-7xl mx-auto border-t border-verdeBosque/10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 flex flex-col justify-between reveal">
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] text-verdeHoja font-medium">01 · Diagnóstico</span>
+          <h2 class="font-serif text-4xl lg:text-5xl mt-4 font-light leading-tight">La necesidad de un relato coherente</h2>
+        </div>
+        <div class="mt-8 lg:mt-0 max-w-sm">
+          <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+            Nuestra comunidad ya respira, siembra y conserva. El reto consiste en asegurar que nuestra expresión gráfica comparta la misma pureza y calidez de nuestras acciones.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="flex flex-col gap-6 reveal reveal-delay-1">
+          <span class="text-xs uppercase tracking-widest text-verdeHoja font-medium">Lo que sostenemos</span>
+          <div class="h-[1px] bg-verdeBosque/10"></div>
+          <ul class="space-y-6 text-sm text-verdeBosque/80 font-light">
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Una comunidad consolidada</span>
+              <span class="text-xs text-verdeBosque/60">70 personas unidas en 36 familias activas.</span>
+            </li>
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Un ecosistema diverso</span>
+              <span class="text-xs text-verdeBosque/60">53 hectáreas andinas con 205 especies registradas.</span>
+            </li>
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Un horizonte ético claro</span>
+              <span class="text-xs text-verdeBosque/60">Valores compartidos de soberanía y bioconstrucción.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-6 reveal reveal-delay-2">
+          <span class="text-xs uppercase tracking-widest text-terracota font-medium">Lo que proyectamos</span>
+          <div class="h-[1px] bg-verdeBosque/10"></div>
+          <ul class="space-y-6 text-sm text-verdeBosque/80 font-light">
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Equilibrio entre datos y emoción</span>
+              <span class="text-xs text-verdeBosque/60">Traducir la ciencia ecológica en calidez visual.</span>
+            </li>
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Consistencia estructural</span>
+              <span class="text-xs text-verdeBosque/60">Cohesión absoluta entre el discurso y la interfaz gráfica.</span>
+            </li>
+            <li class="flex flex-col gap-1">
+              <span class="font-serif text-lg text-verdeBosque">Sentido de pertenencia</span>
+              <span class="text-xs text-verdeBosque/60">Inyectar en la web el arraigo de la labor campesina y Panche.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Territorio -->
+  <section id="territorio" class="py-24 bg-[#EBE3D3]/20 px-8 border-t border-b border-verdeBosque/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
+        <div class="max-w-lg">
+          <span class="text-xs uppercase tracking-[0.2em] text-verdeHoja font-medium">02 · El Territorio</span>
+          <h2 class="font-serif text-4xl lg:text-5xl mt-4 font-light">La memoria del paisaje</h2>
+        </div>
+        <p class="text-sm text-verdeBosque/70 max-w-sm mt-4 md:mt-0 font-light leading-relaxed">
+          Nuestro hábitat se compone de bosque, agua y memoria campesina. El diseño de datos refleja esta ligereza y precisión.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-verdeBosque/10">
+        <div class="flex flex-col gap-4 reveal reveal-delay-1">
+          <span class="text-xs uppercase tracking-widest text-verdeHoja font-medium font-mono">Extensión física</span>
+          <div class="font-serif text-7xl lg:text-8xl font-light text-verdeBosque">53 Ha</div>
+          <div class="w-12 h-[1px] bg-terracota"></div>
+          <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+            Bosque Andino en La Vega, Cundinamarca. 80% reservado a conservación, 17 Ha de cuenca hídrica y 6 Ha de siembra limpia y productiva.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4 reveal reveal-delay-2">
+          <span class="text-xs uppercase tracking-widest text-azulCielo font-medium font-mono">Biodiversidad de cuenca</span>
+          <div class="font-serif text-7xl lg:text-8xl font-light text-verdeBosque">205</div>
+          <div class="w-12 h-[1px] bg-terracota"></div>
+          <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+            Especies catalogadas en el territorio: 56 aves nativas, 11 mamíferos andinos, 9 reptiles y anfibios, 73 insectos y 56 plantas bioconstructoras.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4 reveal reveal-delay-3">
+          <span class="text-xs uppercase tracking-widest text-terracota font-medium font-mono">Tejido humano</span>
+          <div class="font-serif text-7xl lg:text-8xl font-light text-verdeBosque">36 Fam</div>
+          <div class="w-12 h-[1px] bg-terracota"></div>
+          <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+            70 personas que integran la herencia campesina de La Vega, la memoria de las comunidades originarias Panches y el quehacer colectivo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · Concepto -->
+  <section id="concepto" class="py-24 px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 flex flex-col gap-6 reveal">
+        <span class="text-xs uppercase tracking-[0.2em] text-verdeHoja font-medium">03 · Esencia</span>
+        <h2 class="font-serif text-4xl lg:text-5xl font-light leading-tight text-verdeBosque">Raíz Viva</h2>
+        <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+          Nuestra propuesta de diseño se articula en torno a un solo eje conceptual. Es la reconciliación entre la firmeza de la tierra y el movimiento constante de la comunidad.
+        </p>
+
+        <div class="mt-4 flex flex-col gap-4">
+          <div class="flex items-start gap-4">
+            <span class="text-xs font-mono font-bold text-terracota mt-1">RAÍZ</span>
+            <p class="text-xs text-verdeBosque/70 font-light leading-relaxed">Honra a los ancestros, la sabiduría de la tierra, la geología y la historia campesina.</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="text-xs font-mono font-bold text-azulCielo mt-1">VIVA</span>
+            <p class="text-xs text-verdeBosque/70 font-light leading-relaxed">Abraza el dinamismo, el flujo hídrico, el nacimiento de la biodiversidad y la regeneración.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 flex justify-center items-center py-12 relative reveal reveal-delay-2">
+        <div class="w-full max-w-md border border-verdeBosque/10 p-12 rounded-3xl text-center relative overflow-hidden bg-crema card-lift">
+          <span class="text-[10px] uppercase tracking-widest text-verdeHoja font-mono">Eje Vertebral de Marca</span>
+          <p class="font-serif text-4xl lg:text-5xl font-light text-verdeBosque my-6 italic">Raíz Viva</p>
+          <div class="w-16 h-[1px] bg-terracota mx-auto my-4"></div>
+          <p class="text-xs text-verdeBosque/60 font-light leading-relaxed">
+            La biodiversidad entendida como la manifestación visible y tangible de una cultura humana que cuida y regenera.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · Dimensiones -->
+  <section class="py-24 px-8 border-t border-b border-verdeBosque/10" x-data="{ activeTab: 1 }">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+      <div class="lg:col-span-4 reveal">
+        <span class="text-xs uppercase tracking-[0.2em] text-verdeHoja font-medium">04 · Dimensiones</span>
+        <h2 class="font-serif text-4xl lg:text-5xl mt-4 font-light leading-tight">Las bases de nuestra co-creación</h2>
+        <p class="text-sm text-verdeBosque/70 font-light leading-relaxed mt-6">
+          Explora las cuatro dimensiones fundamentales que sustentan el plan de diseño y el quehacer diario de Mi Tribu.
+        </p>
+      </div>
+
+      <div class="lg:col-span-8 flex flex-col gap-8 reveal reveal-delay-2">
+        <div class="flex flex-wrap gap-4 border-b border-verdeBosque/10 pb-4">
+          <button @click="activeTab = 1" :class="activeTab === 1 ? 'text-verdeHoja border-b-2 border-verdeHoja font-medium' : 'text-verdeBosque/50'" class="text-xs uppercase tracking-widest pb-2 transition-all duration-300">01 · Social</button>
+          <button @click="activeTab = 2" :class="activeTab === 2 ? 'text-verdeHoja border-b-2 border-verdeHoja font-medium' : 'text-verdeBosque/50'" class="text-xs uppercase tracking-widest pb-2 transition-all duration-300">02 · Ecológica</button>
+          <button @click="activeTab = 3" :class="activeTab === 3 ? 'text-verdeHoja border-b-2 border-verdeHoja font-medium' : 'text-verdeBosque/50'" class="text-xs uppercase tracking-widest pb-2 transition-all duration-300">03 · Económica</button>
+          <button @click="activeTab = 4" :class="activeTab === 4 ? 'text-verdeHoja border-b-2 border-verdeHoja font-medium' : 'text-verdeBosque/50'" class="text-xs uppercase tracking-widest pb-2 transition-all duration-300">04 · Cultural</button>
+        </div>
+
+        <div class="min-h-[150px]">
+          <div x-show="activeTab === 1" x-transition class="flex flex-col gap-4">
+            <h4 class="font-serif text-3xl font-light text-verdeBosque">Dimensión Social / Vida y Vínculos</h4>
+            <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+              Organización comunitaria a través de la comunicación asertiva, gobernanza compartida y procesos colectivos de apoyo. La vida social en Mi Tribu fomenta relaciones sanas y un tejido de cuidado mutuo entre las 36 familias.
+            </p>
+          </div>
+          <div x-show="activeTab === 2" x-transition class="flex flex-col gap-4" style="display: none;">
+            <h4 class="font-serif text-3xl font-light text-verdeBosque">Dimensión Ecológica / Regeneración</h4>
+            <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+              Preservación estricta de las 53 hectáreas andinas, restauración de las microcuencas del Río La Flora, soberanía alimentaria con agroecología y bioconstrucción en materiales locales como guadua y tierra.
+            </p>
+          </div>
+          <div x-show="activeTab === 3" x-transition class="flex flex-col gap-4" style="display: none;">
+            <h4 class="font-serif text-3xl font-light text-verdeBosque">Dimensión Económica / Sustento Colectivo</h4>
+            <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+              Diseño de economías circulares locales, proyectos comunitarios de turismo de conservación, agricultura ecológica justa y sistemas de financiamiento solidarios que aportan seguridad a la tribu.
+            </p>
+          </div>
+          <div x-show="activeTab === 4" x-transition class="flex flex-col gap-4" style="display: none;">
+            <h4 class="font-serif text-3xl font-light text-verdeBosque">Dimensión Cultural / Memoria e Historia</h4>
+            <p class="text-sm text-verdeBosque/70 font-light leading-relaxed">
+              Recuperación de la memoria histórica local, diálogo de saberes con tradiciones ancestrales Panches, resguardo de prácticas agrícolas tradicionales, festividades locales y arte comunitario.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · Paleta Cromática -->
+  <section id="identidad" class="py-24 px-8 max-w-7xl mx-auto">
+    <div class="mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.2em] text-verdeHoja font-medium">05 · Paleta Cromática</span>
+      <h2 class="font-serif text-4xl lg:text-5xl mt-4 font-light">Un sistema de cinco tonos</h2>
+      <p class="text-sm text-verdeBosque/70 max-w-lg mt-4 font-light leading-relaxed">
+        Nuestra paleta se restringe al rigor del bosque andino y la ligereza del cielo de La Vega. Haz clic en cualquier muestra para copiar su código HEX.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <button @click="copyHex('#FAF8F4'); toastMessage = 'HEX #FAF8F4 copiado'; showToast = true; setTimeout(() => showToast = false, 2500)"
+              class="group text-left focus:outline-none flex flex-col gap-3 reveal reveal-delay-1">
+        <div class="w-full h-40 bg-[#FAF8F4] border border-verdeBosque/10 rounded-2xl transition-all duration-300 group-hover:scale-[1.02]"></div>
+        <div>
+          <span class="text-xs font-medium text-verdeBosque">Crema</span>
+          <p class="text-[10px] font-mono text-verdeBosque/50">#FAF8F4 · Fondo Base</p>
+        </div>
+      </button>
+
+      <button @click="copyHex('#1A3D2B'); toastMessage = 'HEX #1A3D2B copiado'; showToast = true; setTimeout(() => showToast = false, 2500)"
+              class="group text-left focus:outline-none flex flex-col gap-3 reveal reveal-delay-2">
+        <div class="w-full h-40 bg-[#1A3D2B] rounded-2xl transition-all duration-300 group-hover:scale-[1.02]"></div>
+        <div>
+          <span class="text-xs font-medium text-verdeBosque">Verde Bosque</span>
+          <p class="text-[10px] font-mono text-verdeBosque/50">#1A3D2B · Tipografía y Estructura</p>
+        </div>
+      </button>
+
+      <button @click="copyHex('#3D7A4F'); toastMessage = 'HEX #3D7A4F copiado'; showToast = true; setTimeout(() => showToast = false, 2500)"
+              class="group text-left focus:outline-none flex flex-col gap-3 reveal reveal-delay-3">
+        <div class="w-full h-40 bg-[#3D7A4F] rounded-2xl transition-all duration-300 group-hover:scale-[1.02]"></div>
+        <div>
+          <span class="text-xs font-medium text-verdeBosque">Verde Hoja</span>
+          <p class="text-[10px] font-mono text-verdeBosque/50">#3D7A4F · Acentos y Botones</p>
+        </div>
+      </button>
+
+      <button @click="copyHex('#C4714A'); toastMessage = 'HEX #C4714A copiado'; showToast = true; setTimeout(() => showToast = false, 2500)"
+              class="group text-left focus:outline-none flex flex-col gap-3 reveal reveal-delay-4">
+        <div class="w-full h-40 bg-[#C4714A] rounded-2xl transition-all duration-300 group-hover:scale-[1.02]"></div>
+        <div>
+          <span class="text-xs font-medium text-verdeBosque">Terracota</span>
+          <p class="text-[10px] font-mono text-verdeBosque/50">#C4714A · Calidez y Comunidad</p>
+        </div>
+      </button>
+
+      <button @click="copyHex('#7BA6B5'); toastMessage = 'HEX #7BA6B5 copiado'; showToast = true; setTimeout(() => showToast = false, 2500)"
+              class="group text-left focus:outline-none flex flex-col gap-3 reveal reveal-delay-4">
+        <div class="w-full h-40 bg-[#7BA6B5] rounded-2xl transition-all duration-300 group-hover:scale-[1.02]"></div>
+        <div>
+          <span class="text-xs font-medium text-verdeBosque">Azul Cielo</span>
+          <p class="text-[10px] font-mono text-verdeBosque/50">#7BA6B5 · Agua y Ligereza</p>
+        </div>
+      </button>
+    </div>
+
+    <!-- Tipografías -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-24 pt-16 border-t border-verdeBosque/10">
+      <div class="reveal">
+        <span class="text-xs uppercase tracking-widest text-verdeHoja font-medium font-mono">Títulos y Frases</span>
+        <p class="font-serif text-4xl lg:text-5xl font-light text-verdeBosque mt-4 leading-tight">Cormorant Garamond</p>
+        <p class="text-sm text-verdeBosque/60 font-light mt-2 leading-relaxed">
+          Elegante, orgánica, de terminaciones finas. Ideal para portadas, citas, poesía del paisaje y títulos principales.
+        </p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <span class="text-xs uppercase tracking-widest text-verdeHoja font-medium font-mono">Cuerpos y Datos</span>
+        <p class="font-sans text-2xl font-light text-verdeBosque mt-4 tracking-wider">DM Sans</p>
+        <p class="text-sm text-verdeBosque/60 font-light mt-2 leading-relaxed">
+          Altamente legible, geométrica, limpia, sin distracciones estéticas. Ideal para información técnica, números y formularios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Co-Creación / Formulario -->
+  <section id="registro" class="py-24 bg-[#FAF8F4] border-t border-verdeBosque/10 px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.2em] text-terracota font-medium">Co-Creación</span>
+      <h2 class="font-serif text-4xl lg:text-5xl mt-4 font-light text-verdeBosque">Escribir una nueva historia</h2>
+      <p class="text-sm text-verdeBosque/70 font-light leading-relaxed mt-4">
+        Si compartes la visión de un habitar regenerativo y deseas colaborar en la ecoaldea, comparte tus datos con nuestra comunidad.
+      </p>
+    </div>
+
+    <form class="max-w-2xl mx-auto space-y-8 reveal reveal-delay-2"
+          onsubmit="event.preventDefault(); alert('¡Gracias por conectar con nuestra tribu!');">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex flex-col gap-2">
+          <label for="usr-name" class="text-xs text-verdeBosque/60 uppercase tracking-widest">Nombre completo</label>
+          <input type="text" id="usr-name" required
+                 class="bg-transparent border-b border-verdeBosque/20 py-3 text-sm text-verdeBosque focus:border-verdeHoja focus:outline-none transition-all duration-300 font-light">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="usr-email" class="text-xs text-verdeBosque/60 uppercase tracking-widest">Correo de contacto</label>
+          <input type="email" id="usr-email" required
+                 class="bg-transparent border-b border-verdeBosque/20 py-3 text-sm text-verdeBosque focus:border-verdeHoja focus:outline-none transition-all duration-300 font-light">
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="usr-motivation" class="text-xs text-verdeBosque/60 uppercase tracking-widest">¿Cuál es tu quehacer o motivación en el proyecto?</label>
+        <textarea id="usr-motivation" rows="4" required
+                  class="bg-transparent border-b border-verdeBosque/20 py-3 text-sm text-verdeBosque focus:border-verdeHoja focus:outline-none transition-all duration-300 font-light resize-none"></textarea>
+      </div>
+
+      <div class="flex items-start gap-4">
+        <input type="checkbox" id="check-privacy" required class="accent-verdeHoja mt-1">
+        <label for="check-privacy" class="text-xs text-verdeBosque/60 font-light leading-relaxed">
+          Acepto que mi información sea compartida internamente con el consejo de familias de Mi Tribu en La Vega, Cundinamarca.
+        </label>
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-verdeBosque hover:bg-verdeHoja text-crema text-xs uppercase tracking-widest px-12 py-4 rounded-md transition-all duration-300">
+          Enviar propuesta de enlace
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-crema border-t border-verdeBosque/10 py-16 px-8 text-verdeBosque">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-6 flex flex-col gap-4">
+        <span class="font-serif text-2xl tracking-wide font-light">mi tribu</span>
+        <p class="text-xs text-verdeBosque/60 max-w-sm font-light leading-relaxed">
+          Ecoaldea regenerativa para 36 familias unidas en la conservación de 53 hectáreas de Bosque Andino y la herencia viva de La Vega, Cundinamarca.
+        </p>
+        <div class="flex gap-4 text-[10px] text-verdeBosque/40 font-mono tracking-widest mt-2">
+          <span>#MITRIBU</span>
+          <span>#ECOALDEA</span>
+          <span>#VIDAREGENERATIVA</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-xs text-verdeBosque/70 font-light">
+        <div class="flex flex-col gap-4">
+          <span class="text-[10px] uppercase tracking-widest text-terracota font-medium">Ubicación y Canales</span>
+          <p class="flex items-center gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 stroke-terracota"></i>
+            <span>Km 8, vía La Vega a Sasaima, Cundinamarca</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4 stroke-terracota"></i>
+            <a href="mailto:contacto@ecoaldeamitribu.org" class="hover:text-verdeHoja">contacto@ecoaldeamitribu.org</a>
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <span class="text-[10px] uppercase tracking-widest text-terracota font-medium">Enlace Directo</span>
+          <p class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 stroke-terracota"></i>
+            <a href="tel:+573171896313" class="hover:text-verdeHoja">+57 317 1896313</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <i data-lucide="instagram" class="w-4 h-4 stroke-terracota"></i>
+            <a href="https://instagram.com/ecoaldea.mitribu" target="_blank" class="hover:text-verdeHoja">@ecoaldea.mitribu</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-verdeBosque/10 mt-12 pt-8 text-center text-[11px] text-verdeBosque/40 font-light">
+      <p>Ecoaldea Mi Tribu &copy; 2026 · Versión de Identidad de Marca 1.0 (Junio 2025) · La Vega, Cundinamarca, Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Analytics -->
   <!-- <script>window.GA_ID = 'G-XXXXXXXXXX';</script> -->
   <script src="tracking.js"></script>
 
-  <!-- Lógica de scroll reveal -->
+  <!-- Scroll reveal -->
   <script src="main.js"></script>
+
+  <!-- Copiado HEX + Lucide -->
+  <script>
+    function copyHex(hexCode) {
+      navigator.clipboard.writeText(hexCode).catch(() => {});
+    }
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
