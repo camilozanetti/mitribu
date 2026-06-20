@@ -298,29 +298,23 @@
         </div>
       </div>
 
-      <!-- 4 Pilares -->
-      <div class="reveal">
-        <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium block mb-8">Pilares que nos unen</span>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-verdeBosque/8 rounded-3xl overflow-hidden">
-          <div class="p-7 border-r border-b lg:border-b-0 border-verdeBosque/8 flex flex-col gap-3 hover:bg-verdeBosque/[.025] transition-colors">
-            <i class="ph ph-heart text-terracota" style="font-size:22px"></i>
-            <p class="text-sm font-medium text-verdeBosque">Cuidado de la vida</p>
-            <p class="text-[12px] text-verdeBosque/45 font-light leading-relaxed">Guardianamos el territorio, el agua y la biodiversidad.</p>
+      <!-- Foto comunidad -->
+      <div class="reveal mt-4">
+        <div class="relative h-72 lg:h-80 rounded-3xl overflow-hidden">
+          <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67e1c5d711b35b04257.png"
+               alt="Comunidad Mi Tribu" loading="lazy"
+               class="w-full h-full object-cover object-center">
+          <div class="absolute inset-0"
+               style="background:linear-gradient(100deg,rgba(26,61,43,.72) 0%,rgba(26,61,43,.18) 55%,transparent 100%)">
           </div>
-          <div class="p-7 border-b lg:border-b-0 border-r border-verdeBosque/8 flex flex-col gap-3 hover:bg-verdeBosque/[.025] transition-colors">
-            <i class="ph ph-buildings text-verdeHoja" style="font-size:22px"></i>
-            <p class="text-sm font-medium text-verdeBosque">Propiedad colectiva</p>
-            <p class="text-[12px] text-verdeBosque/45 font-light leading-relaxed">Un solo territorio compartido como bien común.</p>
-          </div>
-          <div class="p-7 border-r border-verdeBosque/8 flex flex-col gap-3 hover:bg-verdeBosque/[.025] transition-colors">
-            <i class="ph ph-users-three text-azulCielo" style="font-size:22px"></i>
-            <p class="text-sm font-medium text-verdeBosque">Vida en comunidad</p>
-            <p class="text-[12px] text-verdeBosque/45 font-light leading-relaxed">Convivencia consciente y construcción colectiva.</p>
-          </div>
-          <div class="p-7 flex flex-col gap-3 hover:bg-verdeBosque/[.025] transition-colors">
-            <i class="ph ph-rainbow text-terracota" style="font-size:22px"></i>
-            <p class="text-sm font-medium text-verdeBosque">La diversidad</p>
-            <p class="text-[12px] text-verdeBosque/45 font-light leading-relaxed">58 adultos, 12 niños, 25 profesiones distintas conviviendo.</p>
+          <div class="absolute inset-0 flex items-center">
+            <div class="px-10 lg:px-14 max-w-lg">
+              <p class="font-serif italic font-light text-crema leading-snug"
+                 style="font-size:clamp(1.4rem,2.5vw,2rem)">
+                "25 profesiones distintas,<br>un mismo territorio, una sola tribu."
+              </p>
+              <p class="text-[11px] uppercase tracking-[.2em] text-crema/40 font-mono mt-4">36 familias · 70 personas · La Vega</p>
+            </div>
           </div>
         </div>
       </div>
@@ -506,10 +500,10 @@
               <circle cx="170" cy="170" r="36" fill="#1A3D2B"/>
             </svg>
 
-            <!-- Logo central -->
+            <!-- Isotipo central -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] z-10 flex items-center justify-center">
-              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c66f0a683b64fe2e712a.png"
-                   alt="" class="w-9" style="filter:brightness(0) invert(1)">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67b1c5d711b35b04223.png"
+                   alt="Mi Tribu isotipo" class="w-10" style="filter:brightness(0) invert(1)">
             </div>
 
             <!-- Labels en cada cuadrante -->
@@ -537,105 +531,171 @@
           </div>
         </div>
 
-        <!-- Contenido expandible -->
-        <div class="reveal reveal-delay-2 flex flex-col gap-4">
+        <!-- Panel imagen + contenido -->
+        <div class="reveal reveal-delay-2">
 
-          <!-- Placeholder cuando ninguno seleccionado -->
-          <div x-show="dim===0" x-transition class="text-center py-12">
-            <p class="font-serif italic text-2xl font-light text-verdeBosque/30">
-              Selecciona una dimensión<br>para explorarla
-            </p>
+          <!-- dim===0: cuadrícula 2x2 de previsualización -->
+          <div x-show="dim===0" x-transition class="grid grid-cols-2 gap-2">
+            <div @click="dim=1" class="relative h-48 rounded-2xl overflow-hidden cursor-pointer group">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961ba.jpeg"
+                   alt="Territorio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+              <div class="absolute inset-0 flex items-end p-4"
+                   style="background:linear-gradient(to top,rgba(26,61,43,.75) 0%,transparent 55%)">
+                <div>
+                  <i class="ph ph-leaf text-crema/75" style="font-size:13px"></i>
+                  <p class="text-[10px] uppercase tracking-widest text-crema font-medium mt-0.5">Territorio</p>
+                </div>
+              </div>
+            </div>
+            <div @click="dim=2" class="relative h-48 rounded-2xl overflow-hidden cursor-pointer group">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a6a6dd1b69a58ce41.jpeg"
+                   alt="Economía" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+              <div class="absolute inset-0 flex items-end p-4"
+                   style="background:linear-gradient(to top,rgba(196,113,74,.75) 0%,transparent 55%)">
+                <div>
+                  <i class="ph ph-coins text-crema/75" style="font-size:13px"></i>
+                  <p class="text-[10px] uppercase tracking-widest text-crema font-medium mt-0.5">Economía</p>
+                </div>
+              </div>
+            </div>
+            <div @click="dim=3" class="relative h-48 rounded-2xl overflow-hidden cursor-pointer group">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961c1.jpg"
+                   alt="Comunidad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+              <div class="absolute inset-0 flex items-end p-4"
+                   style="background:linear-gradient(to top,rgba(123,166,181,.75) 0%,transparent 55%)">
+                <div>
+                  <i class="ph ph-users text-crema/75" style="font-size:13px"></i>
+                  <p class="text-[10px] uppercase tracking-widest text-crema font-medium mt-0.5">Comunidad</p>
+                </div>
+              </div>
+            </div>
+            <div @click="dim=4" class="relative h-48 rounded-2xl overflow-hidden cursor-pointer group">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a1c5d711b35b631c3.jpeg"
+                   alt="Gobernanza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+              <div class="absolute inset-0 flex items-end p-4"
+                   style="background:linear-gradient(to top,rgba(26,61,43,.75) 0%,transparent 55%)">
+                <div>
+                  <i class="ph ph-scales text-crema/75" style="font-size:13px"></i>
+                  <p class="text-[10px] uppercase tracking-widest text-crema font-medium mt-0.5">Gobernanza</p>
+                </div>
+              </div>
+            </div>
+            <p class="col-span-2 text-center text-[10px] text-verdeBosque/30 font-mono mt-1">Toca una dimensión para explorarla</p>
           </div>
 
           <!-- Territorio -->
-          <div x-show="dim===1" x-transition:enter="transition ease-out duration-300"
-               x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0"
-               style="display:none" class="flex flex-col gap-5">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-verdeHoja/12 flex items-center justify-center">
-                <i class="ph ph-leaf text-verdeHoja" style="font-size:16px"></i>
+          <div x-show="dim===1" x-transition:enter="transition ease-out duration-400"
+               x-transition:enter-start="opacity-0 scale-[.98]" x-transition:enter-end="opacity-100 scale-100"
+               style="display:none" class="relative rounded-2xl overflow-hidden" style="height:430px">
+            <div class="relative h-[430px]">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961ba.jpeg"
+                   alt="Territorio" class="w-full h-full object-cover">
+              <div class="absolute inset-0"
+                   style="background:linear-gradient(to top,rgba(26,61,43,.92) 0%,rgba(26,61,43,.45) 50%,rgba(26,61,43,.1) 100%)">
               </div>
-              <div>
-                <p class="text-[10px] uppercase tracking-widest text-verdeHoja font-medium">Territorio</p>
-                <h4 class="font-serif text-2xl font-light text-verdeBosque">Cuidado de la vida</h4>
+              <button @click="dim=0"
+                      class="absolute top-4 right-4 flex items-center gap-1.5 text-crema/60 hover:text-crema transition-colors text-[10px] uppercase tracking-widest font-mono">
+                <i class="ph ph-x-circle" style="font-size:16px"></i>
+              </button>
+              <div class="absolute bottom-0 left-0 right-0 p-8">
+                <p class="text-[10px] uppercase tracking-widest text-verdeHoja font-medium mb-1">Territorio</p>
+                <h4 class="font-serif text-3xl font-light text-crema mb-3 leading-tight">Cuidado de la vida</h4>
+                <p class="text-sm text-crema/70 font-light leading-relaxed max-w-sm">
+                  Guardianamos 53 Ha de Bosque Tropical Subandino. Protegemos el agua, la biodiversidad y restauramos el ecosistema con metodología de diseño regenerativo Key Line.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">53 Ha conservadas</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">17 Ha ronda hídrica</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">6 Ha agroecológicas</span>
+                </div>
               </div>
-            </div>
-            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed">
-              Guardianamos 53 Ha de topografía mixta en Bosque Tropical Subandino. Generamos impacto positivo a través de la protección del agua, la conservación de biodiversidad, la restauración del ecosistema y la reducción de nuestra huella ecológica.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span class="text-[11px] bg-verdeHoja/8 text-verdeHoja px-3 py-1.5 rounded-full font-light">53 Ha conservadas</span>
-              <span class="text-[11px] bg-verdeHoja/8 text-verdeHoja px-3 py-1.5 rounded-full font-light">17 Ha cuenca hídrica</span>
-              <span class="text-[11px] bg-verdeHoja/8 text-verdeHoja px-3 py-1.5 rounded-full font-light">6 Ha agroecológicas</span>
             </div>
           </div>
 
           <!-- Economía -->
-          <div x-show="dim===2" x-transition:enter="transition ease-out duration-300"
-               x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0"
-               style="display:none" class="flex flex-col gap-5">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-terracota/10 flex items-center justify-center">
-                <i class="ph ph-coins text-terracota" style="font-size:16px"></i>
+          <div x-show="dim===2" x-transition:enter="transition ease-out duration-400"
+               x-transition:enter-start="opacity-0 scale-[.98]" x-transition:enter-end="opacity-100 scale-100"
+               style="display:none" class="relative rounded-2xl overflow-hidden">
+            <div class="relative h-[430px]">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a6a6dd1b69a58ce41.jpeg"
+                   alt="Economía" class="w-full h-full object-cover">
+              <div class="absolute inset-0"
+                   style="background:linear-gradient(to top,rgba(100,45,15,.92) 0%,rgba(100,45,15,.35) 50%,rgba(100,45,15,.05) 100%)">
               </div>
-              <div>
-                <p class="text-[10px] uppercase tracking-widest text-terracota font-medium">Economía</p>
-                <h4 class="font-serif text-2xl font-light text-verdeBosque">Cuidado del sustento</h4>
+              <button @click="dim=0"
+                      class="absolute top-4 right-4 text-crema/60 hover:text-crema transition-colors">
+                <i class="ph ph-x-circle" style="font-size:16px"></i>
+              </button>
+              <div class="absolute bottom-0 left-0 right-0 p-8">
+                <p class="text-[10px] uppercase tracking-widest text-terracota/90 font-medium mb-1">Economía</p>
+                <h4 class="font-serif text-3xl font-light text-crema mb-3 leading-tight">Cuidado del sustento</h4>
+                <p class="text-sm text-crema/70 font-light leading-relaxed max-w-sm">
+                  Economía colaborativa basada en el bien común. Promovemos la economía circular, reducimos consumo y residuos, y desarrollamos emprendimientos responsables con aliados estratégicos.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Economía circular</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Emprendimientos locales</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Alianzas estratégicas</span>
+                </div>
               </div>
-            </div>
-            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed">
-              Economía colaborativa basada en el bien común. Promovemos la economía circular, reducimos nuestros niveles de consumo y residuos, desarrollamos emprendimientos responsables y gestionamos recursos con aliados estratégicos.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span class="text-[11px] bg-terracota/8 text-terracota px-3 py-1.5 rounded-full font-light">Economía circular</span>
-              <span class="text-[11px] bg-terracota/8 text-terracota px-3 py-1.5 rounded-full font-light">Emprendimientos locales</span>
-              <span class="text-[11px] bg-terracota/8 text-terracota px-3 py-1.5 rounded-full font-light">Alianzas estratégicas</span>
             </div>
           </div>
 
           <!-- Comunidad -->
-          <div x-show="dim===3" x-transition:enter="transition ease-out duration-300"
-               x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0"
-               style="display:none" class="flex flex-col gap-5">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-azulCielo/12 flex items-center justify-center">
-                <i class="ph ph-users text-azulCielo" style="font-size:16px"></i>
+          <div x-show="dim===3" x-transition:enter="transition ease-out duration-400"
+               x-transition:enter-start="opacity-0 scale-[.98]" x-transition:enter-end="opacity-100 scale-100"
+               style="display:none" class="relative rounded-2xl overflow-hidden">
+            <div class="relative h-[430px]">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2ac50697c411a961c1.jpg"
+                   alt="Comunidad" class="w-full h-full object-cover">
+              <div class="absolute inset-0"
+                   style="background:linear-gradient(to top,rgba(30,65,85,.92) 0%,rgba(30,65,85,.35) 50%,rgba(30,65,85,.05) 100%)">
               </div>
-              <div>
-                <p class="text-[10px] uppercase tracking-widest text-azulCielo font-medium">Comunidad</p>
-                <h4 class="font-serif text-2xl font-light text-verdeBosque">Cuidado de los vínculos</h4>
+              <button @click="dim=0"
+                      class="absolute top-4 right-4 text-crema/60 hover:text-crema transition-colors">
+                <i class="ph ph-x-circle" style="font-size:16px"></i>
+              </button>
+              <div class="absolute bottom-0 left-0 right-0 p-8">
+                <p class="text-[10px] uppercase tracking-widest text-azulCielo/90 font-medium mb-1">Comunidad</p>
+                <h4 class="font-serif text-3xl font-light text-crema mb-3 leading-tight">Cuidado de los vínculos</h4>
+                <p class="text-sm text-crema/70 font-light leading-relaxed max-w-sm">
+                  Invertimos en el desarrollo del Ser, la convivencia armoniosa y la comunicación empática. Gestionamos tensiones desde el amor, integrando sentires personales y colectivos.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Comunicación Empática</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Tejido social</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Gobernanza horizontal</span>
+                </div>
               </div>
-            </div>
-            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed">
-              Invertimos en el desarrollo del Ser, la convivencia armoniosa, la comunicación empática y la colaboración. Gestionamos tensiones integrando sentires personales y colectivos desde el amor y el respeto mutuo.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span class="text-[11px] bg-azulCielo/10 text-azulCielo px-3 py-1.5 rounded-full font-light">Comunicación Empática</span>
-              <span class="text-[11px] bg-azulCielo/10 text-azulCielo px-3 py-1.5 rounded-full font-light">Gobernanza horizontal</span>
-              <span class="text-[11px] bg-azulCielo/10 text-azulCielo px-3 py-1.5 rounded-full font-light">Tejido social</span>
             </div>
           </div>
 
           <!-- Gobernanza -->
-          <div x-show="dim===4" x-transition:enter="transition ease-out duration-300"
-               x-transition:enter-start="opacity-0 translate-x-4" x-transition:enter-end="opacity-100 translate-x-0"
-               style="display:none" class="flex flex-col gap-5">
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-verdeBosque/8 flex items-center justify-center">
-                <i class="ph ph-scales text-verdeBosque" style="font-size:16px"></i>
+          <div x-show="dim===4" x-transition:enter="transition ease-out duration-400"
+               x-transition:enter-start="opacity-0 scale-[.98]" x-transition:enter-end="opacity-100 scale-100"
+               style="display:none" class="relative rounded-2xl overflow-hidden">
+            <div class="relative h-[430px]">
+              <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36eb2a1c5d711b35b631c3.jpeg"
+                   alt="Gobernanza" class="w-full h-full object-cover">
+              <div class="absolute inset-0"
+                   style="background:linear-gradient(to top,rgba(26,61,43,.92) 0%,rgba(26,61,43,.45) 50%,rgba(26,61,43,.05) 100%)">
               </div>
-              <div>
-                <p class="text-[10px] uppercase tracking-widest text-verdeBosque/50 font-medium">Gobernanza</p>
-                <h4 class="font-serif text-2xl font-light text-verdeBosque">Cuidado de la estructura</h4>
+              <button @click="dim=0"
+                      class="absolute top-4 right-4 text-crema/60 hover:text-crema transition-colors">
+                <i class="ph ph-x-circle" style="font-size:16px"></i>
+              </button>
+              <div class="absolute bottom-0 left-0 right-0 p-8">
+                <p class="text-[10px] uppercase tracking-widest text-crema/50 font-medium mb-1">Gobernanza</p>
+                <h4 class="font-serif text-3xl font-light text-crema mb-3 leading-tight">Cuidado de la estructura</h4>
+                <p class="text-sm text-crema/70 font-light leading-relaxed max-w-sm">
+                  Organización horizontal basada en gobernanza dinámica y participativa. Inspirados en la sociocracia para tomar decisiones en comunidad de forma equitativa y orgánica.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Sociocracia</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Gobernanza dinámica</span>
+                  <span class="text-[10px] bg-crema/10 text-crema/80 border border-crema/15 px-3 py-1 rounded-full">Horizontalidad</span>
+                </div>
               </div>
-            </div>
-            <p class="text-sm text-verdeBosque/60 font-light leading-relaxed">
-              Organización horizontal basada en gobernanza dinámica, participativa y orgánica. Nos inspiramos en la sociocracia para hacer acuerdos, propuestas y toma de decisiones en comunidad de forma equitativa.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span class="text-[11px] bg-verdeBosque/8 text-verdeBosque/60 px-3 py-1.5 rounded-full font-light">Sociocracia</span>
-              <span class="text-[11px] bg-verdeBosque/8 text-verdeBosque/60 px-3 py-1.5 rounded-full font-light">Gobernanza dinámica</span>
-              <span class="text-[11px] bg-verdeBosque/8 text-verdeBosque/60 px-3 py-1.5 rounded-full font-light">Horizontalidad</span>
             </div>
           </div>
 
@@ -776,11 +836,18 @@
   <!-- ══════ ALIADOS ══════ -->
   <section class="py-20 px-5 lg:px-8 border-t border-verdeBosque/8">
     <div class="max-w-[1120px] mx-auto reveal">
-      <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Red de Aliados</span>
-      <h2 class="font-serif font-light text-verdeBosque mt-3 mb-10"
-          style="font-size:clamp(1.8rem,3.5vw,2.8rem)">
-        Apoyo y cocreación
-      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-end mb-10">
+        <div>
+          <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Red de Aliados</span>
+          <h2 class="font-serif font-light text-verdeBosque mt-3"
+              style="font-size:clamp(1.8rem,3.5vw,2.8rem)">
+            Apoyo y cocreación
+          </h2>
+        </div>
+        <img src="https://assets.cdn.filesafe.space/iy9il2PwnMtT4lOnkecC/media/6a36c67e1c5d711b35b04257.png"
+             alt="Colaboradores Mi Tribu" loading="lazy"
+             class="hidden lg:block h-20 w-auto object-cover rounded-full opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+      </div>
       <div class="flex flex-wrap gap-2.5">
         <span class="ally text-[11px] font-medium text-verdeBosque/55 border border-verdeBosque/10 rounded-full px-4 py-2 cursor-default">Tinansuca · Monte Birding y Nido</span>
         <span class="ally text-[11px] font-medium text-verdeBosque/55 border border-verdeBosque/10 rounded-full px-4 py-2 cursor-default">Humanizar Global</span>
