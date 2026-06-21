@@ -802,49 +802,98 @@
           <p class="text-[10px] text-verdeBosque/30 font-mono">Zuluaga, 2022 · Finca La Flora</p>
         </div>
 
-        <!-- Burbujas proporcionales -->
-        <div class="flex flex-wrap items-center justify-center gap-5 mt-10">
+        <!-- Micelio — desktop: nodos orgánicos con SVG curves -->
+        <div class="hidden lg:block relative mt-10" style="height:460px">
 
-          <!-- 73 Insectos — más grande -->
-          <div class="bio-bub w-52 h-52 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1.5">
+          <!-- SVG hilos de micelio -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1120 460" preserveAspectRatio="none">
+            <path d="M101,97 C160,130 215,175 269,221"  fill="none" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 5"/>
+            <path d="M269,221 C370,195 480,148 594,110" fill="none" stroke="rgba(61,122,79,.09)" stroke-width="1" stroke-dasharray="3 5"/>
+            <path d="M269,221 C345,272 415,330 493,377" fill="none" stroke="rgba(26,61,43,.08)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M594,110 C660,175 730,235 806,299" fill="none" stroke="rgba(196,113,74,.09)" stroke-width="1" stroke-dasharray="3 5"/>
+            <path d="M493,377 C580,360 690,330 806,299" fill="none" stroke="rgba(123,166,181,.10)" stroke-width="1" stroke-dasharray="3 6"/>
+            <!-- Nodo extra: Mamíferos ↔ Aves indirecto -->
+            <path d="M101,97 C300,60 450,75 594,110" fill="none" stroke="rgba(26,61,43,.04)" stroke-width="1" stroke-dasharray="2 8"/>
+          </svg>
+
+          <!-- Insectos — centro-izq, más grande -->
+          <div class="absolute bio-bub w-52 h-52 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1.5"
+               style="top:48%;left:24%;transform:translate(-50%,-50%)">
             <i class="ph ph-butterfly text-verdeHoja" style="font-size:36px"></i>
             <span class="font-serif text-5xl font-light text-verdeBosque leading-none">73</span>
             <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Insectos</p>
-            <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[140px] leading-relaxed">Mariposa Morfo, Abejas Nativas, Tarántulas</p>
+            <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[140px] leading-relaxed">Mariposa Morfo, Abejas Nativas</p>
           </div>
 
-          <!-- 56 Aves -->
-          <div class="bio-bub w-44 h-44 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1.5">
+          <!-- Aves — arriba derecha -->
+          <div class="absolute bio-bub w-44 h-44 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1.5"
+               style="top:24%;left:53%;transform:translate(-50%,-50%)">
             <i class="ph ph-bird text-terracota" style="font-size:30px"></i>
             <span class="font-serif text-4xl font-light text-verdeBosque leading-none">56</span>
             <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
             <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[120px] leading-relaxed">Tucaneta, Colibríes, Tángaras</p>
           </div>
 
-          <!-- 56 Plantas -->
-          <div class="bio-bub w-44 h-44 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1.5">
+          <!-- Plantas — abajo derecha -->
+          <div class="absolute bio-bub w-44 h-44 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1.5"
+               style="top:65%;left:72%;transform:translate(-50%,-50%)">
             <i class="ph ph-plant text-verdeHoja" style="font-size:30px"></i>
             <span class="font-serif text-4xl font-light text-verdeBosque leading-none">56</span>
             <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
             <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[120px] leading-relaxed">Yarumos, Palma de Cera, Guadua</p>
           </div>
 
-          <!-- 11 Mamíferos -->
-          <div class="bio-bub w-32 h-32 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1">
+          <!-- Mamíferos — arriba izquierda -->
+          <div class="absolute bio-bub w-32 h-32 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1"
+               style="top:21%;left:9%;transform:translate(-50%,-50%)">
             <i class="ph ph-paw-print text-azulCielo" style="font-size:24px"></i>
             <span class="font-serif text-3xl font-light text-verdeBosque leading-none">11</span>
             <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
-            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[90px] leading-tight">Tamandúa, Tigrillo, Conejo</p>
+            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[90px] leading-tight">Tamandúa, Tigrillo</p>
           </div>
 
-          <!-- 9 Anfibios -->
-          <div class="bio-bub w-28 h-28 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-1">
+          <!-- Anfibios — abajo centro, más pequeño -->
+          <div class="absolute bio-bub w-28 h-28 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-1"
+               style="top:82%;left:44%;transform:translate(-50%,-50%)">
             <i class="ph ph-drop text-verdeBosque/50" style="font-size:20px"></i>
             <span class="font-serif text-2xl font-light text-verdeBosque leading-none">9</span>
             <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
-            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[80px] leading-tight">Ranas Arlequín, Falso Camaleón</p>
+            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[80px] leading-tight">Ranas Arlequín</p>
           </div>
 
+        </div>
+
+        <!-- Mobile: flex orgánico -->
+        <div class="lg:hidden flex flex-wrap items-end justify-center gap-4 mt-10">
+          <div class="bio-bub w-48 h-48 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1.5">
+            <i class="ph ph-butterfly text-verdeHoja" style="font-size:32px"></i>
+            <span class="font-serif text-4xl font-light text-verdeBosque leading-none">73</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Insectos</p>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="bio-bub w-36 h-36 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1">
+              <i class="ph ph-bird text-terracota" style="font-size:24px"></i>
+              <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
+            </div>
+            <div class="bio-bub w-36 h-36 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1">
+              <i class="ph ph-plant text-verdeHoja" style="font-size:24px"></i>
+              <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="bio-bub w-28 h-28 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1">
+              <i class="ph ph-paw-print text-azulCielo" style="font-size:20px"></i>
+              <span class="font-serif text-2xl font-light text-verdeBosque leading-none">11</span>
+              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
+            </div>
+            <div class="bio-bub w-24 h-24 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-1">
+              <i class="ph ph-drop text-verdeBosque/50" style="font-size:18px"></i>
+              <span class="font-serif text-xl font-light text-verdeBosque leading-none">9</span>
+              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -861,124 +910,185 @@
           Ecoaldeas en el mundo
         </h2>
         <p class="text-sm text-verdeBosque/55 font-light leading-relaxed mt-5 max-w-2xl">
-          Un meta-análisis de 23 documentos sobre ecoaldeas identificó estrategias recurrentes en las comunidades más exitosas del planeta — divididas en transferibles y no transferibles a otros contextos.
+          Un meta-análisis de 23 documentos identificó las estrategias más recurrentes en ecoaldeas del planeta — divididas entre transferibles a otros contextos y no transferibles.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 reveal reveal-delay-1">
+      <!-- Desktop: reloj radial -->
+      <div class="hidden lg:block reveal reveal-delay-1">
+        <div class="relative mx-auto" style="width:620px;height:620px">
 
-        <!-- Transferibles -->
-        <div>
-          <h3 class="font-serif text-lg font-light text-verdeBosque mb-8 pb-4 border-b border-verdeBosque/8">
-            Estrategias transferibles
-          </h3>
-          <div class="space-y-6">
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Ahorro de energía, recursos y transporte</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">33.7%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:33.7%"></div>
-              </div>
+          <!-- SVG: anillos, radios y arcos -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
+            <!-- Anillo exterior sutil -->
+            <circle cx="310" cy="310" r="230" fill="none" stroke="rgba(26,61,43,.06)" stroke-width="1.5" stroke-dasharray="4 7"/>
+            <!-- Anillo interior (separación zona transferible / no transferible) -->
+            <!-- Arco transferible (top = items verdes, θ=300° a 180°) -->
+            <path d="M310,80 A230,230 0 1,1 80,310" fill="none" stroke="rgba(61,122,79,.15)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Arco no transferible -->
+            <path d="M80,310 A230,230 0 0,1 310,80" fill="none" stroke="rgba(196,113,74,.15)" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- Radios (spokes) desde r=75 hasta r=204 -->
+            <!-- 1. θ=0° → (310,80) -->
+            <line x1="310" y1="235" x2="310" y2="106" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 2. θ=36° → (445,144) -->
+            <line x1="310" y1="310" x2="445" y2="144" stroke="rgba(139,105,20,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 3. θ=72° → (529,239) -->
+            <line x1="310" y1="310" x2="529" y2="239" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 4. θ=108° → (529,381) -->
+            <line x1="310" y1="310" x2="529" y2="381" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 5. θ=144° → (445,476) -->
+            <line x1="310" y1="310" x2="445" y2="476" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 6. θ=180° → (310,540) -->
+            <line x1="310" y1="310" x2="310" y2="514" stroke="rgba(26,61,43,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 7. θ=216° → (175,476) -->
+            <line x1="310" y1="310" x2="175" y2="476" stroke="rgba(196,113,74,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 8. θ=252° → (91,381) -->
+            <line x1="310" y1="310" x2="91" y2="381" stroke="rgba(139,105,20,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 9. θ=288° → (91,239) -->
+            <line x1="310" y1="310" x2="91" y2="239" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 10. θ=324° → (175,144) -->
+            <line x1="310" y1="310" x2="175" y2="144" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
+
+            <!-- Círculo central -->
+            <circle cx="310" cy="310" r="74" fill="rgba(250,248,244,.97)" stroke="rgba(26,61,43,.08)" stroke-width="1"/>
+            <text x="310" y="298" text-anchor="middle" fill="rgba(26,61,43,.40)"
+                  style="font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:.14em;text-transform:uppercase">Meta-análisis</text>
+            <text x="310" y="318" text-anchor="middle" fill="rgba(26,61,43,.80)"
+                  style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">23</text>
+            <text x="310" y="332" text-anchor="middle" fill="rgba(26,61,43,.35)"
+                  style="font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:.1em;text-transform:uppercase">Documentos</text>
+          </svg>
+
+          <!-- Nodes HTML (absolute sobre SVG): r_node=230 desde centro (310,310) -->
+          <!-- 1. θ=0° (top): (310, 80) — Ahorro energía 33.7% — verdeHoja -->
+          <div class="absolute flex flex-col items-center" style="top:80px;left:310px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
+              <i class="ph ph-lightning text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">33.7%</span>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Autonomía y apoyo a la economía local</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">30.6%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:30.6%"></div>
-              </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Ahorro Energía</span>
+          </div>
+
+          <!-- 2. θ=36°: (310+230×0.588, 310-230×0.809) = (445, 124) — Economía local 30.6% — dorado -->
+          <div class="absolute flex flex-col items-center" style="top:124px;left:445px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#8B6914">
+              <i class="ph ph-storefront text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">30.6%</span>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Gestión de residuos y desechos</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">11.3%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:11.3%"></div>
-              </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Economía Local</span>
+          </div>
+
+          <!-- 3. θ=72°: (310+218.9, 310-71.1) = (529, 239) — Residuos 11.3% — azulCielo -->
+          <div class="absolute flex flex-col items-center" style="top:239px;left:529px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#7BA6B5">
+              <i class="ph ph-recycle text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">11.3%</span>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Gestión del agua</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">9.3%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:9.3%"></div>
-              </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Gestión Residuos</span>
+          </div>
+
+          <!-- 4. θ=108°: (529, 381) — Agua 9.3% — azulCielo darker -->
+          <div class="absolute flex flex-col items-center" style="top:381px;left:529px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#5A8FA2">
+              <i class="ph ph-drop text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">9.3%</span>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Desarrollo humano y capacitación</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">7.9%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:7.9%"></div>
-              </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Gestión del Agua</span>
+          </div>
+
+          <!-- 5. θ=144°: (445, 497) — Desarrollo humano 7.9% — verdeHoja -->
+          <div class="absolute flex flex-col items-center" style="top:497px;left:445px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
+              <i class="ph ph-graduation-cap text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">7.9%</span>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Previsión y planificación</span>
-                <span class="font-serif text-xl font-light text-verdeHoja ml-4">7.0%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-verdeHoja/50 rounded-full" style="width:7%"></div>
-              </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Desarrollo Humano</span>
+          </div>
+
+          <!-- 6. θ=180° (bottom): (310, 540) — Previsión 7% — verdeBosque -->
+          <div class="absolute flex flex-col items-center" style="top:540px;left:310px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#1A3D2B">
+              <i class="ph ph-calendar-check text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">7%</span>
             </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Previsión</span>
+          </div>
+
+          <!-- 7. θ=216°: (310-135, 497) = (175, 497) — Capital social 52% — terracota -->
+          <div class="absolute flex flex-col items-center" style="top:497px;left:175px;transform:translate(-50%,-50%)">
+            <div class="w-16 h-16 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#C4714A">
+              <i class="ph ph-heart text-crema/90" style="font-size:20px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">52%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Capital Social</span>
+          </div>
+
+          <!-- 8. θ=252°: (91, 381) — Hábitats 27.3% — dorado -->
+          <div class="absolute flex flex-col items-center" style="top:381px;left:91px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#8B6914">
+              <i class="ph ph-house-simple text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">27.3%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Hábitats Sost.</span>
+          </div>
+
+          <!-- 9. θ=288°: (91, 239) — Conservación ambiental 12.4% — verdeHoja -->
+          <div class="absolute flex flex-col items-center" style="top:239px;left:91px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
+              <i class="ph ph-tree-evergreen text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">12.4%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Conservación Amb.</span>
+          </div>
+
+          <!-- 10. θ=324°: (175, 124) — Vida saludable 8.1% — azulCielo -->
+          <div class="absolute flex flex-col items-center" style="top:124px;left:175px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#7BA6B5">
+              <i class="ph ph-heartbeat text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">8.1%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Vida Saludable</span>
+          </div>
+
+          <!-- Etiquetas de zonas -->
+          <div class="absolute text-right" style="top:160px;left:30px">
+            <span class="text-[7px] font-mono uppercase tracking-widest text-terracota/50">No Transferibles →</span>
+          </div>
+          <div class="absolute text-left" style="top:160px;right:30px">
+            <span class="text-[7px] font-mono uppercase tracking-widest text-verdeHoja/50">← Transferibles</span>
           </div>
         </div>
 
-        <!-- No transferibles -->
-        <div>
-          <h3 class="font-serif text-lg font-light text-verdeBosque mb-8 pb-4 border-b border-verdeBosque/8">
-            Estrategias no transferibles
-          </h3>
-          <div class="space-y-6">
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Aumento del capital social, individual y espiritual</span>
-                <span class="font-serif text-xl font-light text-terracota ml-4">52%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-terracota/40 rounded-full" style="width:52%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Creación de hábitats adecuados y sostenibles</span>
-                <span class="font-serif text-xl font-light text-terracota ml-4">27.3%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-terracota/40 rounded-full" style="width:27.3%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Protección y conservación del medio ambiente</span>
-                <span class="font-serif text-xl font-light text-terracota ml-4">12.4%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-terracota/40 rounded-full" style="width:12.4%"></div>
-              </div>
-            </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2">
-                <span class="text-xs text-verdeBosque/65 font-light">Estilo de vida saludable y bienestar espiritual</span>
-                <span class="font-serif text-xl font-light text-terracota ml-4">8.1%</span>
-              </div>
-              <div class="h-0.5 bg-verdeBosque/8 rounded-full overflow-hidden">
-                <div class="h-full bg-terracota/40 rounded-full" style="width:8.1%"></div>
-              </div>
-            </div>
-          </div>
-          <p class="text-[10px] text-verdeBosque/30 font-mono uppercase tracking-widest mt-10">
-            Fuente: meta-análisis de 23 documentos · Global Ecovillage Network
-          </p>
-        </div>
-
+        <p class="text-center text-[10px] text-verdeBosque/30 font-mono uppercase tracking-widest mt-6">
+          Fuente: meta-análisis de 23 documentos · Global Ecovillage Network
+        </p>
       </div>
+
+      <!-- Mobile: lista agrupada -->
+      <div class="lg:hidden reveal reveal-delay-1 space-y-10">
+        <div>
+          <h3 class="text-[10px] font-mono uppercase tracking-widest text-verdeHoja/70 mb-5 pb-3 border-b border-verdeHoja/12">Estrategias transferibles</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">33.7%</span><span class="text-xs text-verdeBosque/60 font-light">Ahorro de energía, recursos y transporte</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">30.6%</span><span class="text-xs text-verdeBosque/60 font-light">Autonomía y economía local</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">11.3%</span><span class="text-xs text-verdeBosque/60 font-light">Gestión de residuos</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">9.3%</span><span class="text-xs text-verdeBosque/60 font-light">Gestión del agua</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">7.9%</span><span class="text-xs text-verdeBosque/60 font-light">Desarrollo humano</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">7%</span><span class="text-xs text-verdeBosque/60 font-light">Previsión y planificación</span></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-[10px] font-mono uppercase tracking-widest text-terracota/70 mb-5 pb-3 border-b border-terracota/12">Estrategias no transferibles</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">52%</span><span class="text-xs text-verdeBosque/60 font-light">Capital social, individual y espiritual</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">27.3%</span><span class="text-xs text-verdeBosque/60 font-light">Hábitats adecuados y sostenibles</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">12.4%</span><span class="text-xs text-verdeBosque/60 font-light">Protección y conservación del medioambiente</span></div>
+            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">8.1%</span><span class="text-xs text-verdeBosque/60 font-light">Estilo de vida saludable</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -997,91 +1107,199 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 reveal reveal-delay-1">
+      <!-- Desktop: territorio al centro + nodos radiales -->
+      <div class="hidden lg:block reveal reveal-delay-1">
+        <div class="relative mx-auto" style="width:620px;height:620px">
 
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-verdeHoja/20 bg-verdeHoja/6
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-verdeHoja/40 group-hover:bg-verdeHoja/12">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">97%</span>
+          <!-- SVG: anillos y radios de conexión -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
+            <!-- Anillo exterior -->
+            <circle cx="310" cy="310" r="220" fill="none" stroke="rgba(26,61,43,.06)" stroke-width="1.5" stroke-dasharray="4 7"/>
+            <!-- Radios (desde r=100 hasta r=194) — 8 nodos a 45° -->
+            <!-- 0° top → (310,90) -->
+            <line x1="310" y1="210" x2="310" y2="116" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 45° → (466,154) -->
+            <line x1="381" y1="239" x2="466" y2="154" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 90° → (530,310) -->
+            <line x1="410" y1="310" x2="504" y2="310" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 135° → (466,466) -->
+            <line x1="381" y1="381" x2="466" y2="466" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 180° → (310,530) -->
+            <line x1="310" y1="410" x2="310" y2="504" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 225° → (154,466) -->
+            <line x1="239" y1="381" x2="154" y2="466" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 270° → (90,310) -->
+            <line x1="210" y1="310" x2="116" y2="310" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- 315° → (154,154) -->
+            <line x1="239" y1="239" x2="154" y2="154" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 4"/>
+
+            <!-- Paisaje central dentro de círculo (r=100) -->
+            <defs>
+              <clipPath id="lscape"><circle cx="310" cy="310" r="98"/></clipPath>
+              <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C8DFE8"/>
+                <stop offset="55%" stop-color="#DFF0E8"/>
+                <stop offset="100%" stop-color="#EAE8D8"/>
+              </linearGradient>
+            </defs>
+            <!-- Sky -->
+            <rect x="212" y="212" width="196" height="196" fill="url(#skyg)" clip-path="url(#lscape)"/>
+            <!-- Far hills -->
+            <path d="M212,292 C230,268 255,260 280,266 C305,272 320,268 340,272 C355,276 370,270 408,278 L408,408 L212,408 Z"
+                  fill="#1A3D2B" opacity=".35" clip-path="url(#lscape)"/>
+            <!-- Mid hills -->
+            <path d="M212,310 C235,288 262,280 290,286 C314,292 332,284 355,290 C372,295 388,286 408,292 L408,408 L212,408 Z"
+                  fill="#3D7A4F" opacity=".60" clip-path="url(#lscape)"/>
+            <!-- Front hill -->
+            <path d="M212,330 C242,312 268,306 298,312 C322,317 342,308 368,314 C384,318 396,310 408,316 L408,408 L212,408 Z"
+                  fill="#3D7A4F" clip-path="url(#lscape)"/>
+            <!-- Trees -->
+            <polygon points="258,308 251,330 265,330" fill="#1A3D2B" clip-path="url(#lscape)"/>
+            <polygon points="276,303 269,325 283,325" fill="#1A3D2B" clip-path="url(#lscape)"/>
+            <polygon points="334,306 327,328 341,328" fill="#1A3D2B" clip-path="url(#lscape)"/>
+            <polygon points="352,300 345,322 359,322" fill="#1A3D2B" clip-path="url(#lscape)"/>
+            <!-- River line -->
+            <path d="M212,356 C240,348 265,352 290,346 C315,340 338,346 368,342 L408,344 L408,360 L212,360 Z"
+                  fill="#7BA6B5" opacity=".30" clip-path="url(#lscape)"/>
+            <!-- Circle border -->
+            <circle cx="310" cy="310" r="98" fill="none" stroke="rgba(26,61,43,.12)" stroke-width="1.5"/>
+            <!-- Center label -->
+            <text x="310" y="250" text-anchor="middle" fill="rgba(250,248,244,.82)"
+                  style="font-family:'DM Sans',sans-serif;font-size:6.5px;letter-spacing:.14em;text-transform:uppercase">53 Ha · Bosque Subandino</text>
+          </svg>
+
+          <!-- 8 nodos HTML alrededor del territorio (r=220 desde centro) -->
+          <!-- 0° top: (310, 90) — 97% Depuración aguas — azulCielo -->
+          <div class="absolute flex flex-col items-center" style="top:90px;left:310px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#5A8FA2">
+              <i class="ph ph-drop text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">97%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Depuración<br>de aguas</span>
           </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Depuración de aguas</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Restaura fuentes y ciclos hídricos</p>
+
+          <!-- 45°: (466, 154) — 97% Hábitats — verdeHoja -->
+          <div class="absolute flex flex-col items-center" style="top:154px;left:466px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#3D7A4F">
+              <i class="ph ph-tree-evergreen text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">97%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Hábitats<br>Terrestres</span>
+          </div>
+
+          <!-- 90°: (530, 310) — 96% Paz y justicia — verdeBosque -->
+          <div class="absolute flex flex-col items-center" style="top:310px;left:530px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#1A3D2B">
+              <i class="ph ph-scales text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">96%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Paz y<br>Justicia</span>
+          </div>
+
+          <!-- 135°: (466, 466) — 95% Alianzas — terracota -->
+          <div class="absolute flex flex-col items-center" style="top:466px;left:466px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#C4714A">
+              <i class="ph ph-handshake text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">95%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Alianzas</span>
+          </div>
+
+          <!-- 180° bottom: (310, 530) — 90% Cambio climático — verdeHoja -->
+          <div class="absolute flex flex-col items-center" style="top:530px;left:310px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#3D7A4F">
+              <i class="ph ph-leaf text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">90%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Cambio<br>Climático</span>
+          </div>
+
+          <!-- 225°: (154, 466) — 90% Consumo responsable — terracota -->
+          <div class="absolute flex flex-col items-center" style="top:466px;left:154px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#C4714A">
+              <i class="ph ph-recycle text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">90%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Consumo<br>Responsable</span>
+          </div>
+
+          <!-- 270°: (90, 310) — >40% Igualdad género — azulCielo -->
+          <div class="absolute flex flex-col items-center" style="top:310px;left:90px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#7BA6B5">
+              <i class="ph ph-gender-intersex text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">&gt;40%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Igualdad<br>de Género</span>
+          </div>
+
+          <!-- 315°: (154, 154) — 85% Compostaje — dorado -->
+          <div class="absolute flex flex-col items-center" style="top:154px;left:154px;transform:translate(-50%,-50%)">
+            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg border border-white/20" style="background:#8B6914">
+              <i class="ph ph-plant text-crema/90" style="font-size:18px"></i>
+              <span class="font-mono text-[9px] font-medium text-crema/80 leading-none mt-0.5">85%</span>
+            </div>
+            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 leading-tight">Compostaje</span>
+          </div>
+
         </div>
 
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-terracota/20 bg-terracota/5
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-terracota/35 group-hover:bg-terracota/10">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">97%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Hábitats terrestres</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Restauran ecosistemas activamente</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-azulCielo/25 bg-azulCielo/6
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-azulCielo/40 group-hover:bg-azulCielo/12">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">96%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Paz y justicia</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Resolución pacífica de conflictos</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-verdeHoja/20 bg-verdeHoja/6
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-verdeHoja/40 group-hover:bg-verdeHoja/12">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">95%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Alianzas</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Campañas de protección de DDHH</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-terracota/20 bg-terracota/5
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-terracota/35 group-hover:bg-terracota/10">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">90%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Cambio climático</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Aíslan carbono en suelo y biomasa</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-terracota/20 bg-terracota/5
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-terracota/35 group-hover:bg-terracota/10">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">90%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Consumo responsable</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Recicla, reutiliza y repara bienes</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-azulCielo/25 bg-azulCielo/6
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-azulCielo/40 group-hover:bg-azulCielo/12">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">
-              &gt;40%
-            </span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Igualdad de género</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Representación femenina en decisiones, en 9 de cada 10 ecoaldeas</p>
-        </div>
-
-        <div class="group text-center">
-          <div class="w-28 h-28 mx-auto rounded-full border border-verdeHoja/20 bg-verdeHoja/6
-                      flex flex-col items-center justify-center mb-5 transition-all duration-300
-                      group-hover:border-verdeHoja/40 group-hover:bg-verdeHoja/12">
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">85%</span>
-          </div>
-          <p class="text-xs font-medium text-verdeBosque/75 mb-1">Compostaje</p>
-          <p class="text-[11px] text-verdeBosque/38 font-light leading-relaxed">Convierte en abono toda su basura orgánica</p>
-        </div>
-
+        <p class="text-center text-[10px] text-verdeBosque/30 font-mono uppercase tracking-widest mt-6">
+          Fuente: IBERDROLA · Global Ecovillage Network
+        </p>
       </div>
+
+      <!-- Mobile: lista con iconos -->
+      <div class="lg:hidden grid grid-cols-2 gap-4 reveal reveal-delay-1">
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#5A8FA2">
+            <i class="ph ph-drop text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">97%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Depuración aguas</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#3D7A4F">
+            <i class="ph ph-tree-evergreen text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">97%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Hábitats terrestres</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1A3D2B">
+            <i class="ph ph-scales text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">96%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Paz y justicia</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#C4714A">
+            <i class="ph ph-handshake text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">95%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Alianzas</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#3D7A4F">
+            <i class="ph ph-leaf text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">90%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Cambio climático</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#C4714A">
+            <i class="ph ph-recycle text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">90%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Consumo responsable</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#7BA6B5">
+            <i class="ph ph-gender-intersex text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">&gt;40%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Igualdad de género</p></div>
+        </div>
+        <div class="flex items-center gap-3 p-4 rounded-2xl border border-verdeBosque/8 bg-verdeBosque/3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#8B6914">
+            <i class="ph ph-plant text-crema/90" style="font-size:16px"></i>
+          </div>
+          <div><p class="font-serif text-xl font-light text-verdeBosque leading-none">85%</p><p class="text-[9px] text-verdeBosque/50 uppercase tracking-wide mt-0.5">Compostaje</p></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
