@@ -789,306 +789,263 @@
         </div>
       </div>
 
-      <!-- Biodiversidad — red de burbujas -->
+      <!-- Biodiversidad + Ecoaldeas — dos columnas -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- LEFT: Biodiversidad red de nodos -->
       <div class="reveal">
-        <div class="flex items-baseline justify-between flex-wrap gap-4 mb-4">
-          <div>
-            <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Nuestra Biodiversidad</span>
-            <h3 class="font-serif font-light text-verdeBosque mt-2"
-                style="font-size:clamp(1.8rem,3.5vw,2.8rem)">
-              205 especies catalogadas
-            </h3>
-          </div>
-          <p class="text-[10px] text-verdeBosque/30 font-mono">Zuluaga, 2022 · Finca La Flora</p>
+        <div class="mb-6">
+          <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Nuestra Biodiversidad</span>
+          <h3 class="font-serif font-light text-verdeBosque mt-2"
+              style="font-size:clamp(1.8rem,3vw,2.6rem)">
+            205 especies catalogadas
+          </h3>
+          <p class="text-[10px] text-verdeBosque/30 font-mono mt-1">Zuluaga, 2022 · Finca La Flora</p>
         </div>
 
-        <!-- Micelio — desktop: nodos orgánicos con SVG curves -->
-        <div class="hidden lg:block relative mt-10" style="height:460px">
+        <!-- Red de nodos — desktop -->
+        <div class="hidden lg:block relative mt-6" style="height:460px">
 
-          <!-- SVG hilos de micelio -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1120 460" preserveAspectRatio="none">
-            <path d="M101,97 C160,130 215,175 269,221"  fill="none" stroke="rgba(26,61,43,.10)" stroke-width="1" stroke-dasharray="3 5"/>
-            <path d="M269,221 C370,195 480,148 594,110" fill="none" stroke="rgba(61,122,79,.09)" stroke-width="1" stroke-dasharray="3 5"/>
-            <path d="M269,221 C345,272 415,330 493,377" fill="none" stroke="rgba(26,61,43,.08)" stroke-width="1" stroke-dasharray="3 6"/>
-            <path d="M594,110 C660,175 730,235 806,299" fill="none" stroke="rgba(196,113,74,.09)" stroke-width="1" stroke-dasharray="3 5"/>
-            <path d="M493,377 C580,360 690,330 806,299" fill="none" stroke="rgba(123,166,181,.10)" stroke-width="1" stroke-dasharray="3 6"/>
-            <!-- Nodo extra: Mamíferos ↔ Aves indirecto -->
-            <path d="M101,97 C300,60 450,75 594,110" fill="none" stroke="rgba(26,61,43,.04)" stroke-width="1" stroke-dasharray="2 8"/>
+          <!-- SVG hilos conductores visibles -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 500 460">
+            <!-- Centro (250,230) → Insectos (160,270) -->
+            <path d="M250,230 C215,245 190,258 160,270" fill="none" stroke="rgba(61,122,79,.28)" stroke-width="1.8"/>
+            <!-- Centro (250,230) → Aves (320,100) -->
+            <path d="M250,230 C268,185 290,148 320,100" fill="none" stroke="rgba(196,113,74,.22)" stroke-width="1.8"/>
+            <!-- Centro (250,230) → Plantas (400,340) -->
+            <path d="M250,230 C300,260 355,305 400,340" fill="none" stroke="rgba(61,122,79,.22)" stroke-width="1.8"/>
+            <!-- Centro (250,230) → Mamíferos (80,95) -->
+            <path d="M250,230 C195,190 140,148 80,95" fill="none" stroke="rgba(123,166,181,.22)" stroke-width="1.8"/>
+            <!-- Centro (250,230) → Anfibios (330,410) -->
+            <path d="M250,230 C275,295 305,355 330,410" fill="none" stroke="rgba(26,61,43,.18)" stroke-width="1.8"/>
+            <!-- Conexiones entre nodos (red cruzada) -->
+            <path d="M80,95 C175,78 250,80 320,100" fill="none" stroke="rgba(26,61,43,.08)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M320,100 C375,195 400,265 400,340" fill="none" stroke="rgba(26,61,43,.08)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M160,270 C205,355 265,395 330,410" fill="none" stroke="rgba(26,61,43,.07)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M400,340 C375,378 358,396 330,410" fill="none" stroke="rgba(26,61,43,.07)" stroke-width="1" stroke-dasharray="3 6"/>
+            <path d="M80,95 C105,175 130,225 160,270" fill="none" stroke="rgba(26,61,43,.07)" stroke-width="1" stroke-dasharray="3 6"/>
           </svg>
 
-          <!-- Insectos — centro-izq, más grande -->
-          <div class="absolute bio-bub w-52 h-52 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1.5"
-               style="top:48%;left:24%;transform:translate(-50%,-50%)">
-            <i class="ph ph-butterfly text-verdeHoja" style="font-size:36px"></i>
-            <span class="font-serif text-5xl font-light text-verdeBosque leading-none">73</span>
-            <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Insectos</p>
-            <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[140px] leading-relaxed">Mariposa Morfo, Abejas Nativas</p>
+          <!-- Nodo central: 205 especies -->
+          <div class="absolute bio-bub flex flex-col items-center justify-center gap-0.5"
+               style="top:230px;left:250px;transform:translate(-50%,-50%);width:88px;height:88px;background:#1A3D2B;border:2px solid rgba(26,61,43,.15)">
+            <span class="font-serif text-2xl font-light text-crema leading-none">205</span>
+            <p class="text-[7px] uppercase tracking-widest text-crema/55 font-medium">Especies</p>
           </div>
 
-          <!-- Aves — arriba derecha -->
-          <div class="absolute bio-bub w-44 h-44 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1.5"
-               style="top:24%;left:53%;transform:translate(-50%,-50%)">
-            <i class="ph ph-bird text-terracota" style="font-size:30px"></i>
-            <span class="font-serif text-4xl font-light text-verdeBosque leading-none">56</span>
-            <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
-            <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[120px] leading-relaxed">Tucaneta, Colibríes, Tángaras</p>
-          </div>
-
-          <!-- Plantas — abajo derecha -->
-          <div class="absolute bio-bub w-44 h-44 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1.5"
-               style="top:65%;left:72%;transform:translate(-50%,-50%)">
-            <i class="ph ph-plant text-verdeHoja" style="font-size:30px"></i>
-            <span class="font-serif text-4xl font-light text-verdeBosque leading-none">56</span>
-            <p class="text-[10px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
-            <p class="text-[10px] text-verdeBosque/35 font-light text-center max-w-[120px] leading-relaxed">Yarumos, Palma de Cera, Guadua</p>
-          </div>
-
-          <!-- Mamíferos — arriba izquierda -->
-          <div class="absolute bio-bub w-32 h-32 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1"
-               style="top:21%;left:9%;transform:translate(-50%,-50%)">
-            <i class="ph ph-paw-print text-azulCielo" style="font-size:24px"></i>
-            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">11</span>
-            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
-            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[90px] leading-tight">Tamandúa, Tigrillo</p>
-          </div>
-
-          <!-- Anfibios — abajo centro, más pequeño -->
-          <div class="absolute bio-bub w-28 h-28 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-1"
-               style="top:82%;left:44%;transform:translate(-50%,-50%)">
-            <i class="ph ph-drop text-verdeBosque/50" style="font-size:20px"></i>
-            <span class="font-serif text-2xl font-light text-verdeBosque leading-none">9</span>
-            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
-            <p class="text-[9px] text-verdeBosque/30 font-light text-center max-w-[80px] leading-tight">Ranas Arlequín</p>
-          </div>
-
-        </div>
-
-        <!-- Mobile: flex orgánico -->
-        <div class="lg:hidden flex flex-wrap items-end justify-center gap-4 mt-10">
-          <div class="bio-bub w-48 h-48 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1.5">
-            <i class="ph ph-butterfly text-verdeHoja" style="font-size:32px"></i>
+          <!-- Insectos -->
+          <div class="absolute bio-bub border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1"
+               style="top:270px;left:160px;transform:translate(-50%,-50%);width:160px;height:160px">
+            <i class="ph ph-butterfly text-verdeHoja" style="font-size:28px"></i>
             <span class="font-serif text-4xl font-light text-verdeBosque leading-none">73</span>
             <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Insectos</p>
+            <p class="text-[8px] text-verdeBosque/35 font-light text-center leading-tight" style="max-width:110px">Mariposa Morfo, Abejas Nativas</p>
           </div>
-          <div class="flex flex-col gap-4">
-            <div class="bio-bub w-36 h-36 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1">
-              <i class="ph ph-bird text-terracota" style="font-size:24px"></i>
-              <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
-              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
-            </div>
-            <div class="bio-bub w-36 h-36 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1">
-              <i class="ph ph-plant text-verdeHoja" style="font-size:24px"></i>
-              <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
-              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
-            </div>
+
+          <!-- Aves -->
+          <div class="absolute bio-bub border border-terracota/15 bg-terracota/5 flex flex-col items-center justify-center gap-1"
+               style="top:100px;left:320px;transform:translate(-50%,-50%);width:140px;height:140px">
+            <i class="ph ph-bird text-terracota" style="font-size:24px"></i>
+            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
+            <p class="text-[8px] text-verdeBosque/35 font-light text-center leading-tight" style="max-width:100px">Tucaneta, Colibríes</p>
           </div>
-          <div class="flex flex-col gap-4">
-            <div class="bio-bub w-28 h-28 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1">
-              <i class="ph ph-paw-print text-azulCielo" style="font-size:20px"></i>
-              <span class="font-serif text-2xl font-light text-verdeBosque leading-none">11</span>
-              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
-            </div>
-            <div class="bio-bub w-24 h-24 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-1">
-              <i class="ph ph-drop text-verdeBosque/50" style="font-size:18px"></i>
-              <span class="font-serif text-xl font-light text-verdeBosque leading-none">9</span>
-              <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
-            </div>
+
+          <!-- Plantas -->
+          <div class="absolute bio-bub border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1"
+               style="top:340px;left:400px;transform:translate(-50%,-50%);width:130px;height:130px">
+            <i class="ph ph-plant text-verdeHoja" style="font-size:22px"></i>
+            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
+            <p class="text-[8px] text-verdeBosque/35 font-light text-center leading-tight" style="max-width:90px">Yarumos, Guadua</p>
+          </div>
+
+          <!-- Mamíferos -->
+          <div class="absolute bio-bub border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1"
+               style="top:95px;left:80px;transform:translate(-50%,-50%);width:110px;height:110px">
+            <i class="ph ph-paw-print text-azulCielo" style="font-size:20px"></i>
+            <span class="font-serif text-2xl font-light text-verdeBosque leading-none">11</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
+            <p class="text-[8px] text-verdeBosque/30 font-light text-center leading-tight" style="max-width:80px">Tamandúa, Tigrillo</p>
+          </div>
+
+          <!-- Anfibios -->
+          <div class="absolute bio-bub border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-0.5"
+               style="top:410px;left:330px;transform:translate(-50%,-50%);width:90px;height:90px">
+            <i class="ph ph-drop text-verdeBosque/50" style="font-size:18px"></i>
+            <span class="font-serif text-xl font-light text-verdeBosque leading-none">9</span>
+            <p class="text-[8px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
+          </div>
+
+        </div>
+
+        <!-- Mobile: lista de especies -->
+        <div class="lg:hidden flex flex-wrap justify-center gap-4 mt-8">
+          <div class="bio-bub w-40 h-40 border border-verdeBosque/8 bg-crema flex flex-col items-center justify-center gap-1">
+            <i class="ph ph-butterfly text-verdeHoja" style="font-size:28px"></i>
+            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">73</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Insectos</p>
+          </div>
+          <div class="bio-bub w-36 h-36 border border-terracota/15 bg-terracota/4 flex flex-col items-center justify-center gap-1">
+            <i class="ph ph-bird text-terracota" style="font-size:24px"></i>
+            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Aves</p>
+          </div>
+          <div class="bio-bub w-36 h-36 border border-verdeHoja/20 bg-verdeHoja/5 flex flex-col items-center justify-center gap-1">
+            <i class="ph ph-plant text-verdeHoja" style="font-size:24px"></i>
+            <span class="font-serif text-3xl font-light text-verdeBosque leading-none">56</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/45 font-medium">Plantas</p>
+          </div>
+          <div class="bio-bub w-28 h-28 border border-azulCielo/20 bg-azulCielo/5 flex flex-col items-center justify-center gap-1">
+            <i class="ph ph-paw-print text-azulCielo" style="font-size:20px"></i>
+            <span class="font-serif text-2xl font-light text-verdeBosque leading-none">11</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Mamíferos</p>
+          </div>
+          <div class="bio-bub w-24 h-24 border border-verdeBosque/12 bg-verdeBosque/4 flex flex-col items-center justify-center gap-0.5">
+            <i class="ph ph-drop text-verdeBosque/50" style="font-size:18px"></i>
+            <span class="font-serif text-xl font-light text-verdeBosque leading-none">9</span>
+            <p class="text-[9px] uppercase tracking-widest text-verdeBosque/40 font-medium">Anfibios</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </div><!-- /LEFT col -->
 
-  <!-- ══════ ECOALDEAS EN EL MUNDO ══════ -->
-  <section class="py-28 px-5 lg:px-8 border-t border-verdeBosque/8 bg-[#EBE3D3]/10">
-    <div class="max-w-[1120px] mx-auto">
+      <!-- RIGHT: Ecoaldeas en el mundo — reloj radial -->
+      <div class="reveal reveal-delay-1">
+        <div class="mb-6">
+          <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Contexto Global</span>
+          <h3 class="font-serif font-light text-verdeBosque mt-2"
+              style="font-size:clamp(1.8rem,3vw,2.6rem)">
+            Ecoaldeas en el mundo
+          </h3>
+          <p class="text-sm text-verdeBosque/50 font-light leading-relaxed mt-2 max-w-sm">
+            Meta-análisis de 23 documentos: estrategias más recurrentes en ecoaldeas del planeta.
+          </p>
+        </div>
 
-      <div class="mb-16 reveal">
-        <span class="text-[11px] uppercase tracking-[.22em] text-verdeHoja font-medium">Contexto Global</span>
-        <h2 class="font-serif font-light text-verdeBosque mt-4 leading-tight"
-            style="font-size:clamp(2rem,4vw,3.2rem)">
-          Ecoaldeas en el mundo
-        </h2>
-        <p class="text-sm text-verdeBosque/55 font-light leading-relaxed mt-5 max-w-2xl">
-          Un meta-análisis de 23 documentos identificó las estrategias más recurrentes en ecoaldeas del planeta — divididas entre transferibles a otros contextos y no transferibles.
-        </p>
-      </div>
-
-      <!-- Desktop: reloj radial -->
-      <div class="hidden lg:block reveal reveal-delay-1">
-        <div class="relative mx-auto" style="width:620px;height:620px">
-
-          <!-- SVG: anillos, radios y arcos -->
-          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
-            <!-- Anillo exterior sutil -->
-            <circle cx="310" cy="310" r="230" fill="none" stroke="rgba(26,61,43,.06)" stroke-width="1.5" stroke-dasharray="4 7"/>
-            <!-- Anillo interior (separación zona transferible / no transferible) -->
-            <!-- Arco transferible (top = items verdes, θ=300° a 180°) -->
-            <path d="M310,80 A230,230 0 1,1 80,310" fill="none" stroke="rgba(61,122,79,.15)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Arco no transferible -->
-            <path d="M80,310 A230,230 0 0,1 310,80" fill="none" stroke="rgba(196,113,74,.15)" stroke-width="2.5" stroke-linecap="round"/>
-
-            <!-- Radios (spokes) desde r=75 hasta r=204 -->
-            <!-- 1. θ=0° → (310,80) -->
-            <line x1="310" y1="235" x2="310" y2="106" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 2. θ=36° → (445,144) -->
-            <line x1="310" y1="310" x2="445" y2="144" stroke="rgba(139,105,20,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 3. θ=72° → (529,239) -->
-            <line x1="310" y1="310" x2="529" y2="239" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 4. θ=108° → (529,381) -->
-            <line x1="310" y1="310" x2="529" y2="381" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 5. θ=144° → (445,476) -->
-            <line x1="310" y1="310" x2="445" y2="476" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 6. θ=180° → (310,540) -->
-            <line x1="310" y1="310" x2="310" y2="514" stroke="rgba(26,61,43,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 7. θ=216° → (175,476) -->
-            <line x1="310" y1="310" x2="175" y2="476" stroke="rgba(196,113,74,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 8. θ=252° → (91,381) -->
-            <line x1="310" y1="310" x2="91" y2="381" stroke="rgba(139,105,20,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 9. θ=288° → (91,239) -->
-            <line x1="310" y1="310" x2="91" y2="239" stroke="rgba(61,122,79,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-            <!-- 10. θ=324° → (175,144) -->
-            <line x1="310" y1="310" x2="175" y2="144" stroke="rgba(123,166,181,.15)" stroke-width="1" stroke-dasharray="3 4"/>
-
-            <!-- Círculo central -->
-            <circle cx="310" cy="310" r="74" fill="rgba(250,248,244,.97)" stroke="rgba(26,61,43,.08)" stroke-width="1"/>
-            <text x="310" y="298" text-anchor="middle" fill="rgba(26,61,43,.40)"
-                  style="font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:.14em;text-transform:uppercase">Meta-análisis</text>
-            <text x="310" y="318" text-anchor="middle" fill="rgba(26,61,43,.80)"
-                  style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">23</text>
-            <text x="310" y="332" text-anchor="middle" fill="rgba(26,61,43,.35)"
-                  style="font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:.1em;text-transform:uppercase">Documentos</text>
+        <!-- Desktop: reloj radial compacto — 500×480 -->
+        <div class="hidden lg:block relative" style="height:480px">
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
+            <!-- Anillo exterior -->
+            <circle cx="250" cy="240" r="196" fill="none" stroke="rgba(26,61,43,.06)" stroke-width="1.5" stroke-dasharray="4 7"/>
+            <!-- Arco transferible (verde, ángulos aprox 0°-180° pasando por la derecha) -->
+            <path d="M250,44 A196,196 0 1,1 54,240" fill="none" stroke="rgba(61,122,79,.14)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Arco no transferible (naranja, resto) -->
+            <path d="M54,240 A196,196 0 0,1 250,44" fill="none" stroke="rgba(196,113,74,.14)" stroke-width="2" stroke-linecap="round"/>
+            <!-- 10 radios desde centro hasta r=170 -->
+            <line x1="250" y1="158" x2="250" y2="70" stroke="rgba(61,122,79,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="365" y2="97" stroke="rgba(139,105,20,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="432" y2="178" stroke="rgba(123,166,181,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="432" y2="302" stroke="rgba(123,166,181,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="365" y2="383" stroke="rgba(61,122,79,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="250" y2="410" stroke="rgba(26,61,43,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="135" y2="383" stroke="rgba(196,113,74,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="68" y2="302" stroke="rgba(139,105,20,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="68" y2="178" stroke="rgba(61,122,79,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="250" y1="240" x2="135" y2="97" stroke="rgba(123,166,181,.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- Centro -->
+            <circle cx="250" cy="240" r="58" fill="rgba(250,248,244,.97)" stroke="rgba(26,61,43,.08)" stroke-width="1"/>
+            <text x="250" y="229" text-anchor="middle" fill="rgba(26,61,43,.38)" style="font-family:'DM Sans',sans-serif;font-size:6px;letter-spacing:.14em;text-transform:uppercase">Meta-análisis</text>
+            <text x="250" y="249" text-anchor="middle" fill="rgba(26,61,43,.80)" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300">23</text>
+            <text x="250" y="262" text-anchor="middle" fill="rgba(26,61,43,.32)" style="font-family:'DM Sans',sans-serif;font-size:6px;letter-spacing:.1em;text-transform:uppercase">Documentos</text>
           </svg>
 
-          <!-- Nodes HTML (absolute sobre SVG): r_node=230 desde centro (310,310) -->
-          <!-- 1. θ=0° (top): (310, 80) — Ahorro energía 33.7% — verdeHoja -->
-          <div class="absolute flex flex-col items-center" style="top:80px;left:310px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
-              <i class="ph ph-lightning text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">33.7%</span>
+          <!-- r=196, centro=(250,240). Posiciones: x=250+196*sinθ, y=240-196*cosθ -->
+          <!-- θ=0°: (250,44) -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:44px;left:250px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#3D7A4F;width:50px;height:50px">
+              <i class="ph ph-lightning text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">33.7%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Ahorro Energía</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Ahorro Energía</span>
           </div>
-
-          <!-- 2. θ=36°: (310+230×0.588, 310-230×0.809) = (445, 124) — Economía local 30.6% — dorado -->
-          <div class="absolute flex flex-col items-center" style="top:124px;left:445px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#8B6914">
-              <i class="ph ph-storefront text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">30.6%</span>
+          <!-- θ=36°: x=250+196×0.588=365, y=240-196×0.809=82 → approx (365,82) wait let me recalc -->
+          <!-- sin36=0.5878, cos36=0.809: x=250+115=365, y=240-158=82 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:82px;left:365px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#8B6914;width:50px;height:50px">
+              <i class="ph ph-storefront text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">30.6%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Economía Local</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Economía Local</span>
           </div>
-
-          <!-- 3. θ=72°: (310+218.9, 310-71.1) = (529, 239) — Residuos 11.3% — azulCielo -->
-          <div class="absolute flex flex-col items-center" style="top:239px;left:529px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#7BA6B5">
-              <i class="ph ph-recycle text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">11.3%</span>
+          <!-- θ=72°: sin72=0.951, cos72=0.309: x=250+186=436, y=240-61=179 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:179px;left:436px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#7BA6B5;width:50px;height:50px">
+              <i class="ph ph-recycle text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">11.3%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Gestión Residuos</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Residuos</span>
           </div>
-
-          <!-- 4. θ=108°: (529, 381) — Agua 9.3% — azulCielo darker -->
-          <div class="absolute flex flex-col items-center" style="top:381px;left:529px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#5A8FA2">
-              <i class="ph ph-drop text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">9.3%</span>
+          <!-- θ=108°: sin108=0.951, cos108=-0.309: x=250+186=436, y=240+61=301 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:301px;left:436px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#5A8FA2;width:50px;height:50px">
+              <i class="ph ph-drop text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">9.3%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Gestión del Agua</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Agua</span>
           </div>
-
-          <!-- 5. θ=144°: (445, 497) — Desarrollo humano 7.9% — verdeHoja -->
-          <div class="absolute flex flex-col items-center" style="top:497px;left:445px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
-              <i class="ph ph-graduation-cap text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">7.9%</span>
+          <!-- θ=144°: sin144=0.5878, cos144=-0.809: x=250+115=365, y=240+158=398 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:398px;left:365px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#3D7A4F;width:50px;height:50px">
+              <i class="ph ph-graduation-cap text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">7.9%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Desarrollo Humano</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Desarrollo Humano</span>
           </div>
-
-          <!-- 6. θ=180° (bottom): (310, 540) — Previsión 7% — verdeBosque -->
-          <div class="absolute flex flex-col items-center" style="top:540px;left:310px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#1A3D2B">
-              <i class="ph ph-calendar-check text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">7%</span>
+          <!-- θ=180°: (250, 240+196=436) -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:436px;left:250px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#1A3D2B;width:50px;height:50px">
+              <i class="ph ph-calendar-check text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">7%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Previsión</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Previsión</span>
           </div>
-
-          <!-- 7. θ=216°: (310-135, 497) = (175, 497) — Capital social 52% — terracota -->
-          <div class="absolute flex flex-col items-center" style="top:497px;left:175px;transform:translate(-50%,-50%)">
-            <div class="w-16 h-16 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#C4714A">
-              <i class="ph ph-heart text-crema/90" style="font-size:20px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">52%</span>
+          <!-- θ=216°: sin216=-0.5878, cos216=-0.809: x=250-115=135, y=240+158=398 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:398px;left:135px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#C4714A;width:58px;height:58px">
+              <i class="ph ph-heart text-white/90" style="font-size:17px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">52%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Capital Social</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Capital Social</span>
           </div>
-
-          <!-- 8. θ=252°: (91, 381) — Hábitats 27.3% — dorado -->
-          <div class="absolute flex flex-col items-center" style="top:381px;left:91px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#8B6914">
-              <i class="ph ph-house-simple text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">27.3%</span>
+          <!-- θ=252°: sin252=-0.951, cos252=-0.309: x=250-186=64, y=240+61=301 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:301px;left:64px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#8B6914;width:50px;height:50px">
+              <i class="ph ph-house-simple text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">27.3%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Hábitats Sost.</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Hábitats</span>
           </div>
-
-          <!-- 9. θ=288°: (91, 239) — Conservación ambiental 12.4% — verdeHoja -->
-          <div class="absolute flex flex-col items-center" style="top:239px;left:91px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#3D7A4F">
-              <i class="ph ph-tree-evergreen text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">12.4%</span>
+          <!-- θ=288°: sin288=-0.951, cos288=0.309: x=250-186=64, y=240-61=179 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:179px;left:64px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#3D7A4F;width:50px;height:50px">
+              <i class="ph ph-tree-evergreen text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">12.4%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Conservación Amb.</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Conservación</span>
           </div>
-
-          <!-- 10. θ=324°: (175, 124) — Vida saludable 8.1% — azulCielo -->
-          <div class="absolute flex flex-col items-center" style="top:124px;left:175px;transform:translate(-50%,-50%)">
-            <div class="w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-md" style="background:#7BA6B5">
-              <i class="ph ph-heartbeat text-crema/90" style="font-size:18px"></i>
-              <span class="font-mono text-[8px] text-crema/70 leading-none mt-0.5">8.1%</span>
+          <!-- θ=324°: sin324=-0.5878, cos324=0.809: x=250-115=135, y=240-158=82 -->
+          <div class="absolute flex flex-col items-center gap-1" style="top:82px;left:135px;transform:translate(-50%,-50%)">
+            <div class="rounded-full flex flex-col items-center justify-center shadow-sm" style="background:#7BA6B5;width:50px;height:50px">
+              <i class="ph ph-heartbeat text-white/90" style="font-size:15px"></i>
+              <span class="font-mono text-[7.5px] text-white/75 leading-none mt-0.5">8.1%</span>
             </div>
-            <span class="text-[6.5px] font-mono uppercase tracking-wider text-verdeBosque/55 text-center mt-1.5 max-w-[80px] leading-tight">Vida Saludable</span>
+            <span class="text-[6.5px] font-mono uppercase tracking-wide text-verdeBosque/50 text-center leading-tight" style="max-width:64px">Vida Saludable</span>
           </div>
+        </div><!-- /desktop clock -->
 
-          <!-- Etiquetas de zonas -->
-          <div class="absolute text-right" style="top:160px;left:30px">
-            <span class="text-[7px] font-mono uppercase tracking-widest text-terracota/50">No Transferibles →</span>
-          </div>
-          <div class="absolute text-left" style="top:160px;right:30px">
-            <span class="text-[7px] font-mono uppercase tracking-widest text-verdeHoja/50">← Transferibles</span>
-          </div>
+        <!-- Mobile: lista compacta -->
+        <div class="lg:hidden space-y-3 mt-6">
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#3D7A4F"><i class="ph ph-lightning text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-verdeHoja w-14 flex-shrink-0">33.7%</span><span class="text-xs text-verdeBosque/55 font-light">Ahorro de energía y transporte</span></div>
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#8B6914"><i class="ph ph-storefront text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-verdeHoja w-14 flex-shrink-0">30.6%</span><span class="text-xs text-verdeBosque/55 font-light">Autonomía y economía local</span></div>
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#C4714A"><i class="ph ph-heart text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-terracota w-14 flex-shrink-0">52%</span><span class="text-xs text-verdeBosque/55 font-light">Capital social, individual y espiritual</span></div>
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#8B6914"><i class="ph ph-house-simple text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-terracota w-14 flex-shrink-0">27.3%</span><span class="text-xs text-verdeBosque/55 font-light">Hábitats adecuados y sostenibles</span></div>
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#7BA6B5"><i class="ph ph-recycle text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-verdeHoja w-14 flex-shrink-0">11.3%</span><span class="text-xs text-verdeBosque/55 font-light">Gestión de residuos</span></div>
+          <div class="flex items-center gap-3"><span class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center" style="background:#3D7A4F"><i class="ph ph-tree-evergreen text-white" style="font-size:14px"></i></span><span class="font-serif text-lg font-light text-verdeHoja w-14 flex-shrink-0">12.4%</span><span class="text-xs text-verdeBosque/55 font-light">Conservación ambiental</span></div>
         </div>
+        <p class="text-[10px] text-verdeBosque/30 font-mono mt-4">Fuente: meta-análisis · Global Ecovillage Network</p>
+      </div><!-- /RIGHT col -->
 
-        <p class="text-center text-[10px] text-verdeBosque/30 font-mono uppercase tracking-widest mt-6">
-          Fuente: meta-análisis de 23 documentos · Global Ecovillage Network
-        </p>
-      </div>
-
-      <!-- Mobile: lista agrupada -->
-      <div class="lg:hidden reveal reveal-delay-1 space-y-10">
-        <div>
-          <h3 class="text-[10px] font-mono uppercase tracking-widest text-verdeHoja/70 mb-5 pb-3 border-b border-verdeHoja/12">Estrategias transferibles</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">33.7%</span><span class="text-xs text-verdeBosque/60 font-light">Ahorro de energía, recursos y transporte</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">30.6%</span><span class="text-xs text-verdeBosque/60 font-light">Autonomía y economía local</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">11.3%</span><span class="text-xs text-verdeBosque/60 font-light">Gestión de residuos</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">9.3%</span><span class="text-xs text-verdeBosque/60 font-light">Gestión del agua</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">7.9%</span><span class="text-xs text-verdeBosque/60 font-light">Desarrollo humano</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-verdeHoja w-16 text-right flex-shrink-0">7%</span><span class="text-xs text-verdeBosque/60 font-light">Previsión y planificación</span></div>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-[10px] font-mono uppercase tracking-widest text-terracota/70 mb-5 pb-3 border-b border-terracota/12">Estrategias no transferibles</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">52%</span><span class="text-xs text-verdeBosque/60 font-light">Capital social, individual y espiritual</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">27.3%</span><span class="text-xs text-verdeBosque/60 font-light">Hábitats adecuados y sostenibles</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">12.4%</span><span class="text-xs text-verdeBosque/60 font-light">Protección y conservación del medioambiente</span></div>
-            <div class="flex items-center gap-4"><span class="font-serif text-2xl font-light text-terracota w-16 text-right flex-shrink-0">8.1%</span><span class="text-xs text-verdeBosque/60 font-light">Estilo de vida saludable</span></div>
-          </div>
-        </div>
-      </div>
-
+      </div><!-- /grid -->
     </div>
   </section>
 
